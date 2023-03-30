@@ -17,6 +17,11 @@ body {
     background-image: linear-gradient(315deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 74%);
 }
 
+.logo {
+    width: 170px;
+    height: auto;
+}
+
 h1 {
     font-size: 2.5rem;
     color: white;
