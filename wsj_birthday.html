@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+			height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(34, 193, 195);
+            background-image: linear-gradient(315deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 74%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .date-picker {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+        }
+
+        .input-container,
+        .result-container {
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .result-container {
+            display: none;
+        }
+
+        .magazine-cover {
+            width: 80%;
+            height: auto;
+            border: 3px solid white;
+        }
+
+        .info-title {
+            margin-top: 0;
+            font-size: 1rem;
+            color: white;
+            text-align: left;
+            line-height: 1.5;
+
+        }
+
+        .info {
+            font-size: 1rem;
+            color: white;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        @media only screen and (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+
+            .input-container,
+            .result-container {
+                flex: 1;
+                max-width: 500px;
+                text-align: left;
+            }
+
+            .input-container {
+                margin-right: 20px;
+            }
+
+            .magazine-cover {
+                width: 300px;
+            }
+
+            .info {
+                width: 400px;
+            }
+        }
+    </style>
+    <title>Shonen Jump Birthday</title>
+</head>
+<body>
+    <div class="container">
+	
+		<div class="input-container" id="input">
+			<h1>Discover the Shonen Jump Magazine released on your birthday!</h1>
+			<input class="date-picker" type="date" id="birthdate" onchange="checkDate()">
+		</div>
+
+        <div class="result-container" id="result">
+            <img class="magazine-cover" src="https://comicvine.gamespot.com/a/uploads/scale_large/13/136525/6163709-44.jpg" id="cover" alt="Magazine Cover">
+			<div class="info-title" id="info-title">
+				<p>Shonen Jump Issue: #1323</p>
+			</div>
+            <div class="info" id ="info">
+                <ul><li>Kujira Daigo Ch. 1</li><li>Ōabare Apache-kun</li><li>Jigoku Ken</li><li>Chichi no Tamashii Ch. 1</li><li>Harenchi Gakuen (pilot one-shot)</li><li>Doru Yarō</li><li>Flash Gordon (a translation of the English strip, the earliest issues of the magazine featured these sorts of translations but always one-off's rather than ongoing translations)</li><li>Te</li></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+		async function checkDate() {
+			const dateInput = document.getElementById("birthdate");
+			const dateValue = dateInput.value;
+			const dateParts = dateValue.split("-");
+			if (dateParts.length === 3) {
+				const year = parseInt(dateParts[0]);
+				const month = parseInt(dateParts[1]);
+				const day = parseInt(dateParts[2]);
+				if (year <= 2020 && year > 1900 && month <= 12 && day <= 31) {
+					// do something with the fully filled date
+					console.log("Selected date:", year, month, day);
+					const inputDate = new Date(year, month - 1, day); // note that month is zero-indexed
+					await getData(inputDate).then(filteredData => displayData(filteredData));
+				}
+			}
+		}
+		
+        function showResult() {
+            const resultContainer = document.getElementById('result');
+			const inputContainer = document.getElementById('input');
+            resultContainer.style.display = 'flex';
+			inputContainer.style.display = 'none';
+        }
+		
+		async function getData(inputDate) {
+		  return fetch('data.json')
+			.then(response => response.json())
+			.then(data => {
+			  // Filter the JSON data by the most approximate result before the input date
+			  const filteredData = data.filter(issue => new Date(issue.cover_date) <= inputDate).slice(-1)[0]
+			  return filteredData;
+			})
+			.catch(error => {
+			  console.error(error);
+			});
+		}
+
+		function displayData(data) {
+			const infoTitle = document.getElementById("info-title");
+			const info = document.getElementById("info");
+			const cover = document.getElementById("cover");
+			
+			console.log(data)
+			
+			cover.src = data.cover_image
+			infoTitle.textContent = "Shonen Jump Issue: " + data.issue_number;
+			info.innerHTML = data.description;
+			
+			showResult()
+
+		}
+    </script>
+</body>
+</html>
