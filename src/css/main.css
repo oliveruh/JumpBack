@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+:root {
+    --primary: #ff5722;
+    --secondary: #2e51a2;
+    --accent: #ffc107;
+    --text: #333;
+    --text-light: #fff;
+    --background: #f0f0f0;
+    --card-bg: #fff;
+    --manga-black: #222;
+    --manga-red: #e74c3c;
+    --manga-yellow: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 100vw;
+    overflow-x: hidden;
+    font-family: 'Nunito', sans-serif;
+    background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff5722' fill-opacity='0.1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-container,
+.result-container {
+    width: 100%;
+    max-width: 550px;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px var(--shadow);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border: 4px solid var(--secondary);
+    overflow: hidden;
+}
+
+.input-container::before,
+.result-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, var(--manga-red) 0%, var(--secondary) 50%, var(--manga-yellow) 100%);
+}
+
+.manga-corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--manga-red);
+    top: -25px;
+    right: -25px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px var(--shadow);
+}
+
+.logo {
+    height: 120px;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    transform: rotate(-15deg);
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 0 var(--manga-black);
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+.date-picker {
+    width: 100%;
+    padding: 0.9rem;
+    border: 3px solid var(--primary);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.date-picker:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.3);
+}
+
+.magazine-cover {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px var(--shadow);
+    border: 4px solid white;
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
+.magazine-cover:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.info-title {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 1rem;
+    font-weight: bold;
+    color: var(--secondary);
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    font-family: 'Bangers', cursive;
+    letter-spacing: 1px;
+}
+
+.info {
+    text-align: left;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary);
+}
+
+.info ul {
+    padding-left: 1.5rem;
+    list-style-type: none;
+}
+
+.info li {
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.info li::before {
+    content: "★";
+    color: var(--manga-red);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.back-button {
+    background: linear-gradient(45deg, var(--primary), var(--manga-red));
+    color: white;
+    border: none;
+    padding: 0.9rem 1.8rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back-button:hover {
+    background: linear-gradient(45deg, var(--manga-red), var(--primary));
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(231, 76, 60, 0.6);
+}
+
+.back-button:active {
+    transform: translateY(1px);
+}
+
+.loading-container {
+    padding: 3rem;
+    text-align: center;
+}
+
+.loading {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 87, 34, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 1s ease-in-out infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.manga-speech-bubble {
+    font-family: "Comic Neue", cursive;
+    border: inset;
+    border-width: 2px;
+    border-color: black;
+    font-style: normal;
+    position: relative;
+    padding: 15px;
+    margin: 1em 0;
+    background: var(--manga-yellow);
+    border-radius: 10px;
+    font-weight: bold;
+    transform: rotate(-1deg);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.4rem;
+}
+
+.manga-speech-bubble:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 20px solid transparent;
+    border-top-color: var(--manga-yellow);
+    border-bottom: 0;
+    margin-left: -20px;
+    margin-bottom: -20px;
+}
+
+.error-message {
+    color: var(--manga-red);
+    margin-top: 0.8rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+}
+
+.cover-date {
+    display: inline-block;
+    background: var(--secondary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sound-effect {
+    font-family: 'Bangers', cursive;
+    font-size: 1.8rem;
+    color: var(--manga-red);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transform: rotate(-3deg);
+    margin: 1rem 0;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(-3deg);
+    }
+
+    50% {
+        transform: scale(1.05) rotate(-3deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(-3deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .input-container,
+    .result-container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+}

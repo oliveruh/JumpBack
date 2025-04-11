@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Core Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JumpBack - The Shonen Jump magazine released on the day you were born!</title>
+    <meta name="description" content="Discover the Shonen Jump Magazine released on the day you were born!">
+    <meta name="keywords" content="shonen jump, manga, anime, birthday, magazine, date, born">
+    <meta name="author" content="oliveruh_">
+    <meta name="robots" content="index,follow">
+    <meta name="language" content="en">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jumpback.veramonte.org">
+    <meta property="og:title" content="The Shonen Jump from your Birth Date">
+    <meta property="og:description" content="Discover the Shonen Jump Magazine released on the day you were born!">
+    <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@oliveruh_">
+    <meta name="twitter:creator" content="@oliveruh_">
+    <meta name="twitter:title" content="The Shonen Jump from your Birth Date">
+    <meta name="twitter:description" content="Discover the Shonen Jump Magazine released on the day you were born!">
+    <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+
+    <!-- Assets -->
+    <link rel="icon" href="./assets/images/wsj_logo.webp">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- Scripts -->
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/lib/alpinejs/alpinejs.min.js" defer></script>
+
+    <!--
+        ### TODO ###
+        - Multi-language Support - Toggle between English, Spanish and Portuguese.
+        - Find People Born During Same Issue - Anonymous counter showing how many others share your "birth Jump."
+        - Cover Zoom/Gallery - View high-resolution scans of the cover art or flip through neighboring issues.
+        - Reading Stats - "If you started reading Jump from your birth until today, you would have read X issues!" (How many issues have been released since your birth date).
+        - Shareable Links - Generate a unique URL for your birth Jump to share with friends.
+        - Image Generation - Create a shareable card image with the user's name, birth date, and their "birth Jump" cover that they can download or share directly.
+    -->
+</head>
+
+<body>
+    <div class="container" x-data="jumpApp()">
+        <div class="input-container" x-show="!showResult">
+            <div class="manga-corner"></div>
+            <img class="logo" src="./assets/images/wsj_logo.webp" alt="Pirate Logo">
+            <h1>Discover the Shonen Jump Magazine from your Birth Date!</h1>
+
+            <div class="manga-speech-bubble">
+                Enter your birthday to see which Jump issue was current when you were born!
+            </div>
+
+            <input class="date-picker" type="date" x-model="birthdate" @change="checkDate()">
+            <div class="error-message" x-text="errorMessage" x-show="errorMessage"></div>
+        </div>
+
+        <div class="result-container" x-show="showResult">
+            <div class="manga-corner"></div>
+
+            <div x-show="loading" class="loading-container">
+                <div class="loading"></div>
+                <div class="loading-text">Searching the manga archives...</div>
+                <div class="sound-effect">WHOOSH!</div>
+            </div>
+
+            <template x-if="!loading">
+                <div>
+                    <h1>YOUR BIRTH JUMP!</h1>
+                    <img class="magazine-cover" :src="magazineData.cover_image" alt="Magazine Cover">
+                    <div class="info-title">
+                        <p>Shonen Jump Issue #<span x-text="magazineData.issue_number"></span></p>
+                        <div class="cover-date"><span x-text="formatDate(magazineData.cover_date)"></span></div>
+                    </div>
+                    <div class="sound-effect">SUGOI!</div>
+                    <div class="info" x-html="magazineData.description"></div>
+                    <button class="back-button" @click="resetForm">Try Another Date!</button>
+                </div>
+            </template>
+        </div>
+    </div>
+</body>
+
+</html>
