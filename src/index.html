@@ -47,14 +47,14 @@
 </head>
 
 <body>
+    <div class="background-layer">
     <div class="container" x-data="jumpApp()">
         <div class="input-container" x-show="!showResult">
-            <div class="manga-corner"></div>
             <img class="logo" src="./assets/images/wsj_logo.webp" alt="Pirate Logo">
             <h1>Discover the Shonen Jump Magazine from your Birth Date!</h1>
 
             <div class="manga-speech-bubble">
-                Enter your birthday to see which Jump issue was current when you were born!
+                Enter your birthday to see which <b>Weekly Shonen Jump</b> issue was current when you were born!
             </div>
 
             <input class="date-picker" type="date" x-model="birthdate" @change="checkDate()">
@@ -84,6 +84,7 @@
                 </div>
             </template>
         </div>
+    </div>
     </div>
 </body>
 
