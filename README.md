@@ -2,8 +2,8 @@
  
 **Travel back in time and discover which _Weekly Shonen Jump_ magazine was released when you were born!** 
 
- <p align="center">
-  <img src="[your-image.png](https://jumpback.veramonte.org/assets/images/logo.png)" alt="JumpBack Cover Preview"/>
+<p align="center">
+  <img src="https://jumpback.veramonte.org/assets/images/logo.png" alt="JumpBack Cover Preview"/>
 </p>
  
 ## About the Project 
