@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JumpBack - Your results!</title>
+    <meta name="description" content="The Shonen Jump Magazine released on the day you were born!">
+    <meta name="author" content="oliveruh">
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+    <link rel="shortcut icon" href="assets/images/favicon/favicon.ico">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Permanent+Marker&family=Rubik:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="https://analytics.veramonte.org/script.js" data-website-id="f8a9d97e-4553-4bda-be29-1ca239a3460a"
+        data-exclude-search="true" data-exclude-hash="true" data-auto-track="false">
+    </script>
+</head>
+
+<body class="results-page">
+    <div class="manga-page">
+        <header class="header-panel panel">
+            <a href="index.html" class="back-button" aria-label="Back to the main page"
+                onclick="umami.track('[RESULTS PAGE] Went back to the start page')">
+                <img class="logo" src="./assets/images/logo.png" alt="JumpBack Logo">
+            </a>
+        </header>
+
+        <div class="cover-extra-wrapper">
+            <section class="result-cover panel" aria-labelledby="magazineCoverLabel">
+                <h2 id="magazineCoverLabel" class="visually-hidden">Magazine Cover</h2>
+                <img id="magazineCover" class="magazine-cover"
+                    src="https://placehold.co/300x420/eeeeee/333333?text=Loading+Cover..." alt="Magazine Cover"
+                    onerror="this.onerror=null; this.src='https://placehold.co/300x420/eeeeee/cc0000?text=Cover+Error';">
+            </section>
+
+            <aside class="extra-panel panel" aria-labelledby="extraPanelTitle">
+                <div class="panel-content-unskew">
+                    <div class="extra-panel-content">
+                        <h3 id="extraPanelTitle">Behind the Cover</h3>
+                        <p>Loading interesting details about WSJ history and trivia...</p>
+                        <p>
+                            <a href="https://www.viz.com/shonenjump" target="_blank" rel="noopener noreferrer">Read the
+                                latest chapters on VIZ!</a>
+                        </p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <main class="result-info panel" aria-labelledby="resultInfoTitle">
+            <div class="panel-content-unskew">
+                <header class="result-info-header">
+                    <h2 id="resultInfoTitle" class="issue-number">Shonen Jump Issue #<span id="issueNumber">--</span>
+                    </h2>
+                    <p class="cover-date"><span id="coverDate">Loading date...</span></p>
+                </header>
+
+                <section class="result-info-body" aria-label="Magazine Details">
+                    <nav class="tab-navigation" role="tablist" aria-orientation="vertical"
+                        aria-label="Information Tabs">
+                        <button class="tab active" data-tab="contentsTab" role="tab" aria-controls="contentsTabPanel"
+                            aria-selected="true" id="contentsTabButton">
+                            <i class="fas fa-list-ul" aria-hidden="true"></i>
+                            <span class="tab-tooltip">Contents</span>
+                            <span class="visually-hidden">View Contents</span>
+                        </button>
+                        <button class="tab" data-tab="factsTab" role="tab" aria-controls="factsTabPanel"
+                            aria-selected="false" tabindex="-1" id="factsTabButton">
+                            <i class="fas fa-newspaper" aria-hidden="true"></i>
+                            <span class="tab-tooltip">Facts</span>
+                            <span class="visually-hidden">View Facts & Features</span>
+                        </button>
+                        <button class="tab" data-tab="triviaTab" role="tab" aria-controls="triviaTabPanel"
+                            aria-selected="false" tabindex="-1" id="triviaTabButton">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <span class="tab-tooltip">Trivia</span>
+                            <span class="visually-hidden">View Trivia</span>
+                        </button>
+                    </nav>
+
+                    <div class="tab-content-container">
+                        <div id="contentsTabPanel" class="tab-content active" role="tabpanel"
+                            aria-labelledby="contentsTabButton">
+                            <p>Loading issue information...</p>
+                        </div>
+                        <div id="factsTabPanel" class="tab-content hidden" role="tabpanel"
+                            aria-labelledby="factsTabButton">
+                            <p>Loading interesting facts...</p>
+                        </div>
+                        <div id="triviaTabPanel" class="tab-content hidden" role="tabpanel"
+                            aria-labelledby="triviaTabButton">
+                            <p>Loading trivia...</p>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="result-info-buttons">
+                    <button id="backButton" class="manga-button">
+                        <i class="fas fa-arrow-left" aria-hidden="true"></i> Try Another!
+                    </button>
+                    <button id="shareButton" class="manga-button">
+                        <i class="fas fa-share-alt" aria-hidden="true"></i> Share!
+                    </button>
+                </footer>
+            </div>
+        </main>
+
+        <div id="loadingContainer" class="loading-container" aria-label="Loading results" aria-hidden="true">
+            <div class="loading-spinner" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <div class="loading-text">Finding your Jump!</div>
+        </div>
+    </div>
+
+    <footer class="site-footer-info">
+        <p class="author-info">
+            Made by <a href="https://github.com/oliveruh" target="_blank" rel="noopener noreferrer"
+                onclick="umami.track('[RESULTS PAGE] Clicked my GitHub link')">
+                oliveruh <i class="fab fa-github" aria-hidden="true"></i></a>
+        </p>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=Z74ZYG2XLA4KQ" class="tip-button manga-button"
+            target="_blank" rel="noopener noreferrer" onclick="umami.track('[RESULTS PAGE] Clicked donate button')">
+            <i class="fas fa-mug-hot" aria-hidden="true"></i> Tip Me!
+        </a>
+    </footer>
+
+    <script src="scripts/results.js" defer></script>
+</body>
+
+</html>
