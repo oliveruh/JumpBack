@@ -23,6 +23,13 @@ Whether you’re a lifelong fan of the magazine or just manga-curious, it’s a 
 3. 🖼️ You get the cover, issue number, and featured manga list
 
 > All issue data is sourced from a curated JSON dataset built using the Comic Vine API.
+
+## New Features
+
+- [ ] **WSJ Podium**: Showcases the top 3 best-ranked manga in the TOC (Table of Contents), along with visual breakdowns of most represented genres and categories in the issue  
+- [ ] **Trivia**: Loads 3 random fun facts about series featured in that issue  
+- [ ] **WSJ Horoscope**: Assigns you a WSJ character as your zodiac-style sign, based on your birthdate  
+- [ ] **Hidden Gem**: Highlights a lesser-known manga from the issue using ratings from MangaUpdates
  
 ## Website 
  
