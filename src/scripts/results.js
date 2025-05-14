@@ -287,12 +287,42 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // -- Custom description for meta tags --
+    function addCustomDescriptions(birthDateFromURL) {
+        const defaultDescription = "Enter a date to find the Shonen Jump from that day!";
+        if (!birthDateFromURL) {
+            document.title = "JumpBack - No date provided!";
+        } else {
+            const issueCoverDate = elements.coverDate ? elements.coverDate.textContent : state.currentMagazineData.cover_date;
+            defaultDescription = `On my birthdate (${birthDateFromURL}), the Shonen Jump issue was #${state.currentMagazineData.issue_number} (cover date: ${issueCoverDate})! Check out JumpBack to find yours!`;
+            document.title = `JumpBack - Issue #${state.currentMagazineData.issue_number} (${issueCoverDate})`;
+        }
+
+        const metaDescTag = document.querySelector('meta[name="description"]');
+        if (metaDescTag) metaDescTag.setAttribute('content', defaultDescription);
+
+        const ogDescTag = document.querySelector('meta[property="og:description"]');
+        if (ogDescTag) ogDescTag.setAttribute('content', defaultDescription);
+
+        const twitterDescTag = document.querySelector('meta[name="twitter:description"]');
+        if (twitterDescTag) twitterDescTag.setAttribute('content', defaultDescription);
+    }
+
     // --- Initial Load ---
     function initializePage() {
         showLoading(true);
 
         const birthDateFromURL = getDateFromURL();
 
+        if (!birthDateFromURL) {
+            umami.track('[RESULTS PAGE] No date provided in URL');
+            console.warn("No date provided in URL");
+            addCustomDescriptions(null);
+            showLoading(false);
+            return;
+        }
+
+        addCustomDescriptions(birthDateFromURL);
         umami.track(props => ({ ...props, date: birthDateFromURL }));
         umami.identify({ date: birthDateFromURL });
 
