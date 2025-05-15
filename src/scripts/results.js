@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // -- Custom description for meta tags --
     function addCustomDescriptions(birthDateFromURL) {
-        const defaultDescription = "Enter a date to find the Shonen Jump from that day!";
+        let defaultDescription = "Enter a date to find the Shonen Jump from that day!";
         if (!birthDateFromURL) {
             document.title = "JumpBack - No date provided!";
         } else {
@@ -322,7 +322,6 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        addCustomDescriptions(birthDateFromURL);
         umami.track(props => ({ ...props, date: birthDateFromURL }));
         umami.identify({ date: birthDateFromURL });
 
@@ -340,6 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             populateResultsPage(birthdateMagazine);
+            addCustomDescriptions(birthDateFromURL);
 
             showLoading(false);
         }, 1200);
