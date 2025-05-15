@@ -22,7 +22,7 @@ Whether you’re a lifelong fan of the magazine or just manga-curious, it’s a 
 2. 🔍 The app finds the closest *Shonen Jump* issue published *on or before* that date
 3. 🖼️ You get the cover, issue number, and featured manga list
 
-> All issue data is sourced from a curated JSON dataset built using the Comic Vine API.
+> All issue and series data are sourced from a curated JSON dataset built using the Comic Vine API and Manga Updates API.
 
 ## New Features
 
@@ -37,9 +37,10 @@ Whether you’re a lifelong fan of the magazine or just manga-curious, it’s a 
  
 ## Credits 
  
-- Data sourced from **Comic Vine** API
+- Issue data sourced from **Comic Vine** API
+- Series data sourced from **Manga Updates** API
 - Project created by [@oliveruh_](https://twitter.com/oliveruh_)
-- Special thanks to the manga community for their continued support
+- Special thanks to the manga community for their continued support and thank you for making this project reach 100K+ views on Neocities
 
 ## Support
 
