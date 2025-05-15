@@ -317,6 +317,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!birthDateFromURL) {
             umami.track('[RESULTS PAGE] No date provided in URL');
             console.warn("No date provided in URL");
+            populateResultsPage(null);
             addCustomDescriptions(null);
             showLoading(false);
             return;
