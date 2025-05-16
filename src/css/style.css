@@ -119,8 +119,8 @@ body.index-page .manga-page {
 .index-page .input-panel .manga-button,
 .index-page .mascot-panel .speech-bubble,
 .index-page .mascot-panel-2 .speech-bubble,
-.index-page .mascot,
-.index-page .mascot2,
+.index-page .mascotTop,
+.index-page .mascotBottom,
 .index-page .error-message {
   transform: skew(1deg, 0.5deg);
   transition: transform 0.2s ease;
@@ -191,8 +191,8 @@ body.index-page .manga-page {
   background-image: var(--comic-dot-pattern);
 }
 
-.index-page .mascot,
-.index-page .mascot2 {
+.index-page .mascotTop,
+.index-page .mascotBottom {
   order: 2;
   width: 100%;
   max-width: 100%;
@@ -206,11 +206,11 @@ body.index-page .manga-page {
   z-index: 1;
 }
 
-.index-page .mascot {
+.index-page .mascotTop {
   /* background-image will be set by JS */
 }
 
-.index-page .mascot2 {
+.index-page .mascotBottom {
   /* background-image will be set by JS */
 }
 
@@ -442,7 +442,6 @@ body.results-page .panel {
 
 .results-page .tab-navigation .tab i {
   font-size: 1.2rem;
-  margin-right: 5px;
 }
 
 .results-page .tab-navigation .tab .tab-tooltip {
@@ -740,8 +739,8 @@ body.results-page .panel {
     font-size: 1rem;
   }
 
-  .index-page .mascot,
-  .index-page .mascot2 {
+  .index-page .mascotTop,
+  .index-page .mascotBottom {
     height: 60%;
   }
 
@@ -865,8 +864,8 @@ body.results-page .panel {
   .input-panel .date-picker,
   .input-panel .manga-button,
   .mascot-panels-wrapper .speech-bubble,
-  .mascot,
-  .mascot2,
+  .mascotTop,
+  .mascotBottom,
   .error-message,
   .panel-content-unskew,
   .result-cover img,
@@ -941,8 +940,8 @@ body.results-page .panel {
     margin: 5px auto;
   }
 
-  .index-page .mascot,
-  .index-page .mascot2 {
+  .index-page .mascotTop,
+  .index-page .mascotBottom {
     height: 10rem;
   }
 

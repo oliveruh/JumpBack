@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>JumpBack - To your results!</title>
     <meta name="description" content="...">
     <meta name="keywords" content="shonen jump, weekly shonen jump, manga, anime, birthday, birth date, magazine, find shonen jump, jump comics, nostalgic manga">
@@ -68,6 +69,9 @@
         data-exclude-hash="true"
         data-auto-track="false">
     </script>
+
+    <!-- Chart Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -142,17 +146,29 @@
                             <span class="tab-tooltip">Contents</span>
                             <span class="visually-hidden">View Contents</span>
                         </button>
-                        <button class="tab" data-tab="factsTab" role="tab" aria-controls="factsTabPanel"
-                            aria-selected="false" tabindex="-1" id="factsTabButton">
-                            <i class="fas fa-newspaper" aria-hidden="true"></i>
-                            <span class="tab-tooltip">Facts</span>
-                            <span class="visually-hidden">View Facts & Features</span>
+                        <button class="tab" data-tab="statsTab" role="tab" aria-controls="statsTabPanel"
+                            aria-selected="false" tabindex="-1" id="statsTabButton">
+                            <i class="fas fa-chart-simple" aria-hidden="true"></i>
+                            <span class="tab-tooltip">Stats</span>
+                            <span class="visually-hidden">View Stats</span>
                         </button>
                         <button class="tab" data-tab="triviaTab" role="tab" aria-controls="triviaTabPanel"
                             aria-selected="false" tabindex="-1" id="triviaTabButton">
                             <i class="fas fa-star" aria-hidden="true"></i>
                             <span class="tab-tooltip">Trivia</span>
                             <span class="visually-hidden">View Trivia</span>
+                        </button>
+                        <button class="tab" data-tab="horoscopeTab" role="tab" aria-controls="horoscopeTabPanel"
+                            aria-selected="false" tabindex="-1" id="horoscopeTabButton">
+                            <i class="fas fa-hand-sparkles" aria-hidden="true"></i>
+                            <span class="tab-tooltip">Horoscope</span>
+                            <span class="visually-hidden">View Horoscope</span>
+                        </button>
+                        <button class="tab" data-tab="hiddenGemTab" role="tab" aria-controls="hiddenGemTabPanel"
+                            aria-selected="false" tabindex="-1" id="hiddenGemTabButton">
+                            <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                            <span class="tab-tooltip">Hidden Gem</span>
+                            <span class="visually-hidden">View Hidden Gem</span>
                         </button>
                     </nav>
 
@@ -161,13 +177,21 @@
                             aria-labelledby="contentsTabButton">
                             <p>Loading issue information...</p>
                         </div>
-                        <div id="factsTabPanel" class="tab-content hidden" role="tabpanel"
-                            aria-labelledby="factsTabButton">
-                            <p>Loading interesting facts...</p>
+                        <div id="statsTabPanel" class="tab-content hidden" role="tabpanel"
+                            aria-labelledby="statsTabButton">
+                            <p>Loading stats...</p>
                         </div>
                         <div id="triviaTabPanel" class="tab-content hidden" role="tabpanel"
                             aria-labelledby="triviaTabButton">
                             <p>Loading trivia...</p>
+                        </div>
+                        <div id="horoscopeTabPanel" class="tab-content hidden" role="tabpanel"
+                            aria-labelledby="horoscopeTabButton">
+                            <p>Loading horoscope...</p>
+                        </div>
+                        <div id="hiddenGemTabPanel" class="tab-content hidden" role="tabpanel"
+                            aria-labelledby="hiddenGemTabButton">
+                            <p>Loading hidden gem...</p>
                         </div>
                     </div>
                 </section>
@@ -203,7 +227,7 @@
         </a>
     </footer>
 
-    <script src="scripts/results.js" defer></script>
+    <script src="scripts/refactor_results.js" defer></script>
 </body>
 
 </html>

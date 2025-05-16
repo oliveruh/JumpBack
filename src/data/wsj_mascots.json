@@ -1,0 +1,133 @@
+[
+    {
+      "series": "Dragon Ball",
+      "topCharacter": {
+        "name": "Goku",
+        "dialogue": "This is gonna be SUPER! Let's blast off to your Jump issue!",
+        "image": "./assets/images/mascots/goku.png"
+      },
+      "bottomCharacter": {
+        "name": "Vegeta",
+        "dialogue": "Tch. Go ahead and tell your birthdate.",
+        "image": "./assets/images/mascots/vegeta.png"
+      }
+    },
+    {
+      "series": "Naruto",
+      "topCharacter": {
+        "name": "Naruto Uzumaki",
+        "dialogue": "Believe it! Your legendary Jump issue's out there, dattebayo!",
+        "image": "./assets/images/mascots/naruto.png"
+      },
+      "bottomCharacter": {
+        "name": "Kakashi Hatake",
+        "dialogue": "Yo. No need for a mask... unless you're hiding your birth year.",
+        "image": "./assets/images/mascots/kakashi.png"
+      }
+    },
+    {
+      "series": "One Piece",
+      "topCharacter": {
+        "name": "Monkey D. Luffy",
+        "dialogue": "Shishishi! Let's sail to your birth year's Jump treasure!",
+        "image": "./assets/images/mascots/luffy.png"
+      },
+      "bottomCharacter": {
+        "name": "Vinsmoke Sanji",
+        "dialogue": "Tch. I usually serve food, not magazines—but I’ll make an exception for you.",
+        "image": "./assets/images/mascots/sanji.png"
+      }
+    },
+    {
+      "series": "Bleach",
+      "topCharacter": {
+        "name": "Ichigo Kurosaki (Bankai)",
+        "dialogue": "Bankai! Time to slice open your Jump issue from the past!",
+        "image": "./assets/images/mascots/ichigo.png"
+      },
+      "bottomCharacter": {
+        "name": "Rukia Kuchiki",
+        "dialogue": "The Soul Society demands... your birth date. Now.",
+        "image": "./assets/images/mascots/rukia.png"
+      }
+    },
+    {
+      "series": "My Hero Academia",
+      "topCharacter": {
+        "name": "Izuku Midoriya (Full Cowl)",
+        "dialogue": "Plus Ultra! Let’s trace back to your heroic first Jump!",
+        "image": "./assets/images/mascots/deku.png"
+      },
+      "bottomCharacter": {
+        "name": "Katsuki Bakugo",
+        "dialogue": "You better not make me wait, nerd. Gimme the date!",
+        "image": "./assets/images/mascots/bakugo.png"
+      }
+    },
+    {
+      "series": "Jujutsu Kaisen",
+      "topCharacter": {
+        "name": "Yuji Itadori",
+        "dialogue": "This might get cursed, but we’re diggin’ up that Jump!",
+        "image": "./assets/images/mascots/yuji.png"
+      },
+      "bottomCharacter": {
+        "name": "Satoru Gojo",
+        "dialogue": "Relax, I’ve got six eyes and infinite style. That Jump issue’s as good as found.",
+        "image": "./assets/images/mascots/gojo.png"
+      }
+    },
+    {
+      "series": "Demon Slayer",
+      "topCharacter": {
+        "name": "Tanjiro Kamado",
+        "dialogue": "Total Concentration Breathing: Form Zero — Birthdate Reveal!",
+        "image": "./assets/images/mascots/tanjiro.png"
+      },
+      "bottomCharacter": {
+        "name": "Nezuko Kamado (in box)",
+        "dialogue": "Mmph! Mmph! (Translation: I'm hyped to find it!)",
+        "image": "./assets/images/mascots/nezuko.png"
+      }
+    },
+    {
+      "series": "JoJo's Bizarre Adventure",
+      "topCharacter": {
+        "name": "Jotaro Kujo",
+        "dialogue": "Yare yare daze... just spit out the date already.",
+        "image": "./assets/images/mascots/jotaro.png"
+      },
+      "bottomCharacter": {
+        "name": "Joseph Joestar (Young)",
+        "dialogue": "Your next line is... 'No way! That’s my Jump issue?!'",
+        "image": "./assets/images/mascots/joseph.png"
+      }
+    },
+    {
+      "series": "Hunter x Hunter",
+      "topCharacter": {
+        "name": "Gon Freecss",
+        "dialogue": "No matter what, I’ll hunt down that Jump!",
+        "image": "./assets/images/mascots/gon.png"
+      },
+      "bottomCharacter": {
+        "name": "Killua Zoldyck",
+        "dialogue": "This’ll be a shocker—give me the date already.",
+        "image": "./assets/images/mascots/killua.png"
+      }
+    },
+    {
+      "series": "Death Note",
+      "topCharacter": {
+        "name": "L",
+        "dialogue": "There’s an 80.2% chance your Jump issue is hidden in that birthdate.",
+        "image": "./assets/images/mascots/L.png"
+      },
+      "bottomCharacter": {
+        "name": "Light Yagami",
+        "dialogue": "Exactly as I planned... the Jump from the day your destiny began.",
+        "image": "./assets/images/mascots/light.png"
+      }
+    }
+  ]
+  

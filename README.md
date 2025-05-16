@@ -24,6 +24,26 @@ Whether you’re a lifelong fan of the magazine or just manga-curious, it’s a 
 
 > All issue and series data are sourced from a curated JSON dataset built using the Comic Vine API and Manga Updates API.
 
+## Code Philosophy
+
+🧩 **Modular & Lightweight Architecture**  
+Built with intentional simplicity in mind:
+- **Vanilla JS modules** for clear separation of concerns
+- **Object literals** over classes for single-use components
+- **Dependency injection** pattern to avoid tight coupling
+- **HTML templates** isolated from business logic
+- **Zero external dependencies** beyond essential polyfills
+- **Security-first** HTML sanitization for dynamic content
+
+Strikes a middle ground between structure and over-engineering for a small-scale client-side app. Components follow a "just enough architecture" approach while remaining testable and maintainable.
+
+📦 **Key Implementation Choices**  
+→ Pure functional rendering pipeline  
+→ State management via focused modules  
+→ Error handling as first-class citizen  
+→ Progressive enhancement for core features  
+→ Minimalistic bundle (<50kb total JS/CSS)
+
 ## New Features
 
 - [ ] **WSJ Podium**: Showcases the top 3 best-ranked manga in the TOC (Table of Contents), along with visual breakdowns of most represented genres and categories in the issue  
