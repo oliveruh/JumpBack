@@ -1,0 +1,132 @@
+[
+  {
+    "series": "Dragon Ball",
+    "topCharacter": {
+      "name": "Goku",
+      "dialogue": "Isso vai ser demais! Vamos decolar para a sua edição da Jump!",
+      "image": "./assets/images/mascots/goku.png"
+    },
+    "bottomCharacter": {
+      "name": "Vegeta",
+      "dialogue": "Tsc. Vá em frente e diga sua data de nascimento, verme insolente.",
+      "image": "./assets/images/mascots/vegeta.png"
+    }
+  },
+  {
+    "series": "Naruto",
+    "topCharacter": {
+      "name": "Naruto Uzumaki",
+      "dialogue": "Vamos encontrar a sua edição da Jump ou eu não me chamo Naruto Uzumaki!",
+      "image": "./assets/images/mascots/naruto.png"
+    },
+    "bottomCharacter": {
+      "name": "Kakashi Hatake",
+      "dialogue": "Hmm... Você não vai escapar do meu Sharingan. Diga logo sua data de nascimento.",
+      "image": "./assets/images/mascots/kakashi.png"
+    }
+  },
+  {
+    "series": "One Piece",
+    "topCharacter": {
+      "name": "Monkey D. Luffy",
+      "dialogue": "Shishishi!  Vamos encontrar o tesouro da sua Jump! Me diga sua data de nascimento!",
+      "image": "./assets/images/mascots/luffy.png"
+    },
+    "bottomCharacter": {
+      "name": "Vinsmoke Sanji",
+      "dialogue": "Tch. Eu geralmente sirvo comida, não revistas — mas vou fazer uma exceção por você.",
+      "image": "./assets/images/mascots/sanji.png"
+    }
+  },
+  {
+    "series": "Bleach",
+    "topCharacter": {
+      "name": "Ichigo Kurosaki (Bankai)",
+      "dialogue": "Bankai! Vamos descobrir a sua Jump!",
+      "image": "./assets/images/mascots/ichigo.png"
+    },
+    "bottomCharacter": {
+      "name": "Rukia Kuchiki",
+      "dialogue": "A Soul Society exige... sua data de nascimento. Agora.",
+      "image": "./assets/images/mascots/rukia.png"
+    }
+  },
+  {
+    "series": "My Hero Academia",
+    "topCharacter": {
+      "name": "Izuku Midoriya (Full Cowl)",
+      "dialogue": "All Might ficaria orgulhoso! Vamos encontrar a sua Jump!",
+      "image": "./assets/images/mascots/deku.png"
+    },
+    "bottomCharacter": {
+      "name": "Katsuki Bakugo",
+      "dialogue": "Você acha que pode me desafiar? Diga logo sua data de nascimento, nerd idiota!",
+      "image": "./assets/images/mascots/bakugo.png"
+    }
+  },
+  {
+    "series": "Jujutsu Kaisen",
+    "topCharacter": {
+      "name": "Yuji Itadori",
+      "dialogue": "Vamos lá! Me diga sua data de nascimento!",
+      "image": "./assets/images/mascots/yuji.png"
+    },
+    "bottomCharacter": {
+      "name": "Satoru Gojo",
+      "dialogue": "Você não pode ver o futuro sem me dizer sua data de nascimento. Vamos lá!",
+      "image": "./assets/images/mascots/gojo.png"
+    }
+  },
+  {
+    "series": "Demon Slayer",
+    "topCharacter": {
+      "name": "Tanjiro Kamado",
+      "dialogue": "Vamos encontrar a sua Jump! Eu sinto que está perto!",
+      "image": "./assets/images/mascots/tanjiro.png"
+    },
+    "bottomCharacter": {
+      "name": "Nezuko Kamado (in box)",
+      "dialogue": "Mmph! Mmph!",
+      "image": "./assets/images/mascots/nezuko.png"
+    }
+  },
+  {
+    "series": "JoJo's Bizarre Adventure",
+    "topCharacter": {
+      "name": "Jotaro Kujo",
+      "dialogue": "Yare yare daze... Desembucha logo a data de nascimento, que saco.",
+      "image": "./assets/images/mascots/jotaro.png"
+    },
+    "bottomCharacter": {
+      "name": "Joseph Joestar (Young)",
+      "dialogue": "E sua próxima fala é... 'Não acredito, nasci no dia certo!'",
+      "image": "./assets/images/mascots/joseph.png"
+    }
+  },
+  {
+    "series": "Hunter x Hunter",
+    "topCharacter": {
+      "name": "Gon Freecss",
+      "dialogue": "Eu vou encontrar a sua Jump antes de encontrar meu pai!",
+      "image": "./assets/images/mascots/gon.png"
+    },
+    "bottomCharacter": {
+      "name": "Killua Zoldyck",
+      "dialogue": "Isso vai ser uma surpresa. Bota a data aí.",
+      "image": "./assets/images/mascots/killua.png"
+    }
+  },
+  {
+    "series": "Death Note",
+    "topCharacter": {
+      "name": "L",
+      "dialogue": "Eu já deduzi qual a sua data de nascimento antes de você entrar aqui.",
+      "image": "./assets/images/mascots/L.png"
+    },
+    "bottomCharacter": {
+      "name": "Light Yagami",
+      "dialogue": "Tudo como planejado. Agora, diga sua data de nascimento e eu serei o Deus do novo mundo!",
+      "image": "./assets/images/mascots/light.png"
+    }
+  }
+]
