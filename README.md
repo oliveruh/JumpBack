@@ -4,7 +4,7 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
 ![Hosted on Neocities](https://img.shields.io/badge/Hosted_on-Neocities-1f91a9?style=flat-square&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAA35JREFUOE+Nk29sk1UUxp/bvv3Pui1ruxVmYbhJdHMDUlNnNM7BTBhzYNCOQlwQ2ZzOBYSJGUIALRNjYlA3ky2YwDJicPgntoEgVueGyHChbaRJ9wHeOZp2W6tZu7ZrWd97zdtkfFET76fz4Z7fved5zkPwPw5jjKRSqScppfmzs7Pfl5SUpJbaiFgwxqSEEOG/WIyxYq/X+5PbfdO4aVP9qUAg0G02m5PifcIYe5BS2hKNRs/l5+ffIoSwJZD4MgDF/Px8++G395+MT1zknmm2p+qf29Llcrk+tVqtAkmn08c8Hs9hk8nEcxzXqtPpRgFoM5nMulQq9UQ8HrdM3rlj+eKDXbo3a5Q4+bMcBz/6MpBIJOoqKyv9JBaLfbvTZt2yokCDvV32KaPReCkSiWz47fovK369Oqyg4d8lyxDF1gopKh5Q4wdfDJPFLULTjubu0dHR4yQcDt+wNTz92KENAr6eyIFhZQUjYQ+pMiRRqpehUCsDxxFICQEhwFwyg6M/anC894LP6XTWkEgkcmvb5tryM00MKrkEGYEhRyUFJyEgKiOI7hEIgWGAClkAZQw9rjms3/VZvMi4vE4cwfVKs632HTOPsiLlfSMYA1jeo1BvtONa706k54OoLtNieu4eus7fRenGtsWXd+95XfT34277ux2m0DmyvboAWV8BTIZTuOxLo+3I57h9w4E0fxkPL5cjkRYw4o9hhNYJbe37jokuvOh2uwdPvbVN3mPTQymXZAGxZAZ8JIO19QcwhZUooNNQ8BcgxCbRc2UaIX2D0NrWfkgU0ahUKq92vLZndY3qelaD6rJlWKVXguWU4q91R/D+q51QqFRo3f8CTFO9cN4M4881byTXmy02cZEkCwsLnV6vx/5S0/OyzloZ6iryoFVJQfWP45vZcgRPn4dar0PrJwfgH9oLx/Qa1txx1DUwMLAjOzLP83kGg+H02bNntn7V955UKsRxsMGItQ+tgvSpE+DnCCb8fvzhuQKmzKXW3ftu+3y+lsbGxpElzTAzM1OoUChO+P3+7Red36kjd/1Efi8CraEEcn0pCguLBIvFksjNzb00Njb2odVq9QAQ7gPEnzgcDnVVVdWzGo2mHkA5pbSYEJKmlPLRaPRaKBQaHhwc9PT398fEDGbD9G8J7Ovrk2k0GlUwGFQvLi4yjuOS4+PjyaGhoX8k9m//O4qljSZLKAAAAABJRU5ErkJggg==)
 
-**Travel back in time and discover which _Weekly Shonen Jump_ magazine was released when you were born!** 
+**Travel back in time and discover the _Weekly Shonen Jump_ issue with the closest recorded cover date on or before your birthday!**
 
 <p align="center">
   <img src="https://jumpback.veramonte.org/assets/images/logo.png" alt="JumpBack Cover Preview"/>
@@ -12,24 +12,43 @@
  
 ## About the Project 
  
-**JumpBack** is a nostalgic web app hosted on neocities that reveals which issue of *Weekly Shonen Jump* was released on (or before) the day you were born. Just enter your birthdate, and voilà — you’ll get the actual magazine cover, issue number, and the list of manga that were running at the time.
+**JumpBack** is a nostalgic static web app hosted on Neocities. Enter your birthdate to see the magazine cover, archive issue number, and recorded manga contents associated with the closest cover date on or before your date. Cover dates may differ from actual sale dates. The current archive covers **1968-08-01 through 2021-05-24**; dates outside that range are not extrapolated.
 
 Whether you’re a lifelong fan of the magazine or just manga-curious, it’s a fun, personal way to connect with manga history. 🎌
  
 ## How It Works 
  
 1. 📅 Select your birthdate using the calendar
-2. 🔍 The app finds the closest *Shonen Jump* issue published *on or before* that date
+2. The app finds the latest recorded *Shonen Jump* cover date *on or before* that date
 3. 🖼️ You get the cover, issue number, and featured manga list
 
 > All issue and series data are sourced from a curated JSON dataset built using the Comic Vine API and Manga Updates API.
 
 ## New Features
 
-- [ ] **WSJ Podium**: Showcases the top 3 best-ranked manga in the TOC (Table of Contents), along with visual breakdowns of most represented genres and categories in the issue  
-- [ ] **Trivia**: Loads 3 random fun facts about series featured in that issue  
-- [ ] **WSJ Horoscope**: Assigns you a WSJ character as your zodiac-style sign, based on your birthdate  
-- [ ] **Hidden Gem**: Highlights a lesser-known manga from the issue using ratings from MangaUpdates
+- [x] **Magazine Reveal**: A cover-first result card with up to three identified series from the recorded contents, without a popularity ranking
+- [x] **Statistics and Trivia**: Category counts and existing archive trivia, loaded on demand
+- [x] **WSJ Horoscope**: A playful character/sign association using the existing localized dataset
+- [x] **Hidden Gem**: The identified series with the fewest positive MangaUpdates votes in the saved data, with rating as a tie-breaker
+- [x] **Sharing**: Native share, clipboard and manual-copy fallbacks, in English and Brazilian Portuguese
+
+## Development and validation
+
+Serve `src` using a static HTTP server. Deployment still uploads that directory
+directly; there is no production build or backend. See
+[Dev Alley 2027 audit, measurements and limitations](docs/dev-alley-2027.md).
+
+```bash
+npm ci
+npx playwright install chromium
+npm test
+npm run catalog:check
+npm run test:smoke
+```
+
+Historical source JSON files are preserved. After an intentional data update, run
+`npm run catalog` to regenerate the committed compact index/year files. Use
+`npm run measure` for a reproducible local dataset-loading benchmark.
  
 ## Website 
  
