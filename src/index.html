@@ -1,139 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JumpBack - To the Jump from when you were born!</title>
-    <meta name="description" content="Discover the Shonen Jump Magazine released on the day you were born!">
-    <meta name="keywords" content="shonen jump, weekly shonen jump, manga, anime, birthday, birth date, magazine, find shonen jump, jump comics, nostalgic manga">
-    <meta name="author" content="oliveruh">
-    <meta name="robots" content="index,follow">
-    <meta name="language" content="en">
-
-    <link rel="canonical" href="https://jumpback.veramonte.org/">
-
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
-    <link rel="manifest" href="assets/favicon/site.webmanifest">
-    <link rel="shortcut icon" href="assets/favicon/favicon.ico">
-
-    <meta name="msapplication-TileColor" content="#da532c"> 
-    <meta name="theme-color" content="#ffffff"> 
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="JumpBack - To the Jump from when you were born!">
-    <meta property="og:description" content="Ever wondered which Shonen Jump issue was on sale the day you were born? Find out with JumpBack!">
-    <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
-    <meta property="og:image:alt" content="A collage of classic Shonen Jump covers."> 
-    <meta property="og:url" content="https://jumpback.veramonte.org/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en_US"> 
-    <meta property="og:site_name" content="JumpBack"> 
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:site" content="@oliveruh_"> 
-    <meta name="twitter:creator" content="@oliveruh_"> 
-    <meta name="twitter:title" content="JumpBack - To the Jump from when you were born!">
-    <meta name="twitter:description" content="Ever wondered which Shonen Jump issue was on sale the day you were born? Find out with JumpBack!">
-    <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
-    <meta name="twitter:image:alt" content="A collage of classic Shonen Jump covers."> 
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Permanent+Marker&family=Rubik:wght@400;500;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Analytics -->
-    <!-- Disclaimer: This site uses anonymous analytics to help me understand how people interact with my tool. 
-        The data is used solely to identify errors, possible misuse, and to improve the experience over time. 
-        I'm also using this as a learning opportunity to better understand analytics tools, in this case, Umami, which is a
-        wonderful open-source alternative to Google Analytics. I value your privacy and do not track any personal information.
-        If you have any concerns or feedback about this, feel free to reach out at ruhanmonte.dev@gmail.com. I'd love to chat! 
-    -->
-    <script 
-        defer src="https://analytics.veramonte.org/script.js" 
-        data-website-id="f8a9d97e-4553-4bda-be29-1ca239a3460a"
-        data-exclude-search="true" 
-        data-exclude-hash="true"
-        data-auto-track="false">
-    </script>
-
-    <!-- Schema.org Markup -->
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          "name": "JumpBack - Discover the Shonen Jump Magazine released on the day you were born!",
-          "url": "https://jumpback.veramonte.org/",
-          "description": "Discover the Shonen Jump Magazine issue that was released on the day you were born.",
-          "author": {
-            "@type": "Person",
-            "name": "oliveruh"
-          },
-          "inLanguage": "en-US"
-        }
-    </script>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="referrer" content="no-referrer">
+ <title>JumpBack — Find your birth Jump</title>
+ <meta name="description" content="Find the Weekly Shonen Jump issue with the closest recorded cover date on or before your birthday.">
+ <link rel="canonical" href="https://jumpback.veramonte.org/">
+ <meta property="og:title" content="JumpBack">
+ <meta property="og:description" content="Discover your place in manga history.">
+ <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+ <meta property="og:type" content="website">
+ <meta property="og:locale" content="en_US">
+ <meta name="twitter:card" content="summary_large_image">
+ <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+ <meta name="theme-color" content="#F9622F">
+ <link rel="icon" href="assets/favicon/favicon.ico">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Permanent+Marker&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/style.css">
+ <link rel="stylesheet" href="css/reveal.css">
+ <script type="module" src="scripts/index.js"></script>
 </head>
-
-<body class="index-page">
-    <div class="manga-page">
-
-        <header class="header-panel panel">
-            <img class="logo" src="./assets/images/logo.png" alt="JumpBack Logo">
-        </header>
-
-        <main id="inputPanel" class="input-panel panel">
-            <h1>Discover Your Birth Jump!</h1>
-            <div class="speech-bubble">
-                Enter your birthday to see which <b>Weekly Shonen Jump</b> issue was released around the time you were
-                born!
-            </div>
-            <label for="birthdatePicker" class="visually-hidden">Birthdate Picker</label>
-            <input id="birthdatePicker" class="date-picker" type="date" aria-label="Birthdate Picker">
-            <div id="errorMessage" class="error-message" role="alert" aria-live="assertive" style="display: none;">
-            </div>
-            <button id="findButton" class="manga-button">Find My Jump!</button>
-        </main>
-
-        <aside class="mascot-panels-wrapper">
-            <div id="mascotPanel1" class="mascot-panel panel">
-                <div class="speech-bubble" id="mascot1SpeechBubble">
-                </div>
-                <div class="mascot" id="mascot1Image" role="img" aria-label="Mascot Character 1"></div>
-            </div>
-
-            <div id="mascotPanel2" class="mascot-panel-2 panel">
-                <div class="speech-bubble" id="mascot2SpeechBubble">
-                </div>
-                <div class="mascot2" id="mascot2Image" role="img" aria-label="Mascot Character 2"></div>
-            </div>
-        </aside>
-
-    </div>
-
-    <footer class="site-footer-info">
-        <p class="author-info">
-            Made by <a href="https://github.com/oliveruh" target="_blank" rel="noopener noreferrer" onclick="umami.track('[START PAGE] Clicked my GitHub link')">
-                oliveruh <i class="fab fa-github" aria-hidden="true"></i></a>
-        </p>
-        <a href="https://www.paypal.com/donate/?hosted_button_id=Z74ZYG2XLA4KQ" class="tip-button manga-button"
-            target="_blank" rel="noopener noreferrer" onclick="umami.track('[START PAGE] Clicked donate button')">
-            <i class="fas fa-mug-hot" aria-hidden="true"></i> Tip Me!
-        </a>
-    </footer>
-
-    <script src="scripts/index.js" defer></script>
-</body>
-
-</html>
+<body class="index-page reveal-edition">
+<a class="skip-link" href="#inputPanel">Skip to search</a>
+<div class="manga-page"><header class="header-panel panel">
+  <a href="index.html" id="homeLink" aria-label="JumpBack home"><img class="logo" src="assets/images/logo.png" alt="JumpBack" width="250" height="120"></a>
+ </header>
+ <nav class="language-nav" aria-label="Language"><a id="languageLink" href="br/index.html" lang="pt-BR">Português brasileiro</a></nav>
+<main id="inputPanel" class="input-panel panel">
+ <p class="eyebrow">WEEKLY SHONEN JUMP × YOUR STORY</p>
+ <h1>Discover your birth Jump!</h1>
+ <p class="speech-bubble">One date. One cover. Your chapter in manga history.</p>
+ <form id="dateForm" novalidate>
+  <label for="birthdatePicker">Your birth date</label>
+  <input id="birthdatePicker" class="date-picker" type="date" required aria-describedby="coverage errorMessage">
+  <p id="coverage">Checking archive coverage…</p>
+  <p id="errorMessage" class="error-message" role="alert" hidden></p>
+  <button id="findButton" class="manga-button" type="submit" disabled>Find my Jump!</button>
+  <p id="formStatus" role="status" aria-live="polite"></p>
+ </form>
+ <p class="archive-note">We match the latest recorded cover date on or before your date. Cover dates may differ from actual sale dates.</p>
+</main>
+<aside class="mascot-panels-wrapper" aria-label="Jump characters">
+ <div class="mascot-panel panel"><p class="speech-bubble" id="mascot1SpeechBubble">Ready to find your Jump?</p><div class="mascot" id="mascot1Image" role="img" aria-label="Jump character"></div></div>
+<div class="mascot-panel-2 panel"><p class="speech-bubble" id="mascot2SpeechBubble">Ready to find your Jump?</p><div class="mascot2" id="mascot2Image" role="img" aria-label="Jump character"></div></div>
+</aside></div><noscript><p class="panel">Enable JavaScript to search this static archive.</p></noscript><footer class="site-footer-info"><p>Made by <a href="https://github.com/oliveruh" target="_blank" rel="noopener noreferrer">oliveruh</a></p>
+ <a class="tip-button manga-button" href="https://www.paypal.com/donate/?hosted_button_id=Z74ZYG2XLA4KQ" target="_blank" rel="noopener noreferrer">Tip me</a></footer></body></html>

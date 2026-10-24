@@ -1,0 +1,106 @@
+/* Preserve JumpBack's orange/yellow ink, comic lettering, halftone and panels. */
+[hidden] { display: none !important; }
+body.reveal-edition { padding: 28px 16px; justify-content: flex-start; }
+.reveal-edition .manga-page { width: min(1040px, 100%); height: auto; min-height: 0; max-height: none; gap: 18px; padding: 24px; }
+.reveal-edition .header-panel { grid-column: 1 / -1; grid-row: auto; height: 88px; }
+.reveal-edition .header-panel .logo { width: 210px; height: auto; max-height: 115px; object-fit: contain; }
+.language-nav { grid-column: 1 / -1; text-align: right; font-size: .9rem; }
+a { color: #90340b; text-underline-offset: 3px; }
+:focus-visible { outline: 4px solid #12659b; outline-offset: 4px; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 99; background: white; padding: 12px; }
+.skip-link:focus { top: 12px; }
+.reveal-edition .panel { min-width: 0; }
+.reveal-edition .input-panel { grid-column: 1 / 5; grid-row: auto; padding: 32px 26px; }
+.reveal-edition .input-panel h1 { font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.06; margin: 12px 0 18px; }
+.reveal-edition .speech-bubble { font-size: 1.05rem; padding: 15px; }
+.eyebrow { font-size: .76rem; letter-spacing: .13em; font-weight: 700; }
+#dateForm { width: 100%; text-align: center; margin: 20px 0; }
+#dateForm label { display: block; font-weight: 700; margin-bottom: 8px; }
+.reveal-edition .date-picker { display: block; width: min(310px, 100%); max-width: 100%; margin: 0 auto 10px; min-height: 50px; font: inherit; }
+#coverage, .archive-note, .small-note, .source-note { font-size: .82rem; line-height: 1.55; }
+#coverage { min-height: 2em; }
+.archive-note { margin-top: 14px; max-width: 55ch; }
+#formStatus { min-height: 1.6em; margin-top: 10px; }
+.reveal-edition .error-message { display: block; font-size: .95rem; padding: 10px; margin: 10px 0; color: #9a1521; }
+.reveal-edition .mascot-panels-wrapper { grid-column: 5 / 7; grid-row: auto; min-width: 0; }
+.reveal-edition .mascot-panels-wrapper > .panel { min-height: 250px; overflow: hidden; }
+.reveal-edition .mascot, .reveal-edition .mascot2 { min-height: 180px; width: 100%; background-size: contain; background-position: bottom center; background-repeat: no-repeat; }
+.reveal-edition .mascot-panels-wrapper .speech-bubble { max-width: 95%; font-size: 1rem; margin: 10px; }
+.reveal-edition .manga-button { display: inline-flex; justify-content: center; align-items: center; text-decoration: none; font-size: 1.2rem; min-height: 48px; line-height: 1.2; padding: 12px 20px; cursor: pointer; }
+.manga-button:disabled { cursor: wait; opacity: .6; }
+.results-page.reveal-edition .manga-page { display: flex; flex-direction: column; }
+.reveal-main { min-width: 0; }
+.result-status { text-align: center; margin-bottom: 14px; font-weight: 500; }
+.result-card.panel { display: grid; grid-template-columns: minmax(220px, .9fr) minmax(0, 1fr); align-items: stretch; gap: 0; padding: 0; transform: none; overflow: hidden; }
+.cover-stage { padding: 24px; background: #222 var(--comic-dot-pattern); display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; gap: 10px; color: white; }
+.cover-stage .magazine-cover { width: 100%; height: auto; max-height: 620px; max-width: 420px; object-fit: contain; box-shadow: 7px 9px 0 #0008; transform: none; }
+.cover-placeholder { width: 100%; aspect-ratio: 7 / 10; display: grid; place-content: center; text-align: center; padding: 20px; border: 2px dashed #fbbf24; font-family: var(--font-heading-fun); font-size: 1.7rem; background: #333; }
+#coverStatus { font-size: .85rem; text-align: center; }
+#retryCoverButton { font: inherit; padding: 10px; }
+.reveal-copy { padding: 30px 28px 20px; background: var(--panel-bg) var(--comic-dot-pattern); }
+.reveal-copy h1 { font-family: var(--font-heading-comic); font-size: clamp(2.7rem, 5vw, 4.4rem); line-height: .94; margin: 18px 0; }
+.issue-stamp { background: var(--primary-highlight); display: inline-block; padding: 5px 12px; border: 2px solid #222; transform: rotate(-2deg); }
+.issue-stamp strong { font-size: 1.6rem; font-family: var(--font-heading-comic); }
+.reveal-date { font-weight: 700; margin-top: 18px; }
+#selectedDate { font-size: .9rem; }
+.featured-series { border-top: 3px solid #222; margin-top: 24px; padding-top: 12px; }
+.featured-series h2 { font-family: var(--font-heading-comic); font-size: 1.9rem; }
+.featured-series ul { list-style: none; margin: 8px 0; }
+.featured-series li { font-weight: 700; padding: 7px 0; border-bottom: 1px solid #bbb; }
+.card-signature { margin-top: 24px; font-size: .7rem; font-weight: 700; letter-spacing: .08em; }
+.result-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 25px; }
+.share-status { text-align: center; min-height: 1.6em; margin-top: 12px; }
+.share-note { text-align: center; margin: 2px 0 20px; }
+#manualShare { padding: 16px; background: white; border: 2px solid #222; }
+#shareURL { display: block; width: 100%; padding: 12px; font: inherit; }
+.explore-panel.panel { display: block; padding: 24px; transform: none; }
+.explore-panel > h2 { font-family: var(--font-heading-comic); font-size: 2.3rem; }
+.explore-tabs { display: flex; flex-wrap: wrap; gap: 7px; margin: 14px 0; }
+.explore-tab { background: var(--tab-bg); color: #222; border: 2px solid #222; font: inherit; font-weight: 700; padding: 10px 13px; min-height: 44px; cursor: pointer; }
+.explore-tab[aria-selected="true"] { background: #222; color: white; }
+.explore-content { min-height: 180px; max-height: 520px; overflow: auto; overflow-wrap: anywhere; padding: 12px 4px; }
+.explore-content h3 { margin-bottom: 14px; }
+.explore-content ul { margin-left: 22px; }
+.explore-content li { margin-bottom: 10px; }
+.explore-content p { margin-bottom: 12px; }
+.tag-counts meter { display: block; width: min(300px, 100%); height: 20px; }
+.source-note { color: #555; font-style: italic; }
+.error-panel.panel { transform: none; gap: 16px; padding: 30px; text-align: center; }
+.error-panel h1 { font-family: var(--font-heading-comic); font-size: 2.4rem; }
+.is-revealed { animation: reveal-card 220ms ease-out both; }
+.is-revealed .reveal-copy { animation: reveal-copy 320ms ease-out both; }
+@keyframes reveal-card { from { opacity: .55; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@keyframes reveal-copy { from { opacity: .5; } to { opacity: 1; } }
+@media (max-width: 700px) {
+ body.reveal-edition { padding: 12px 8px; }
+ .reveal-edition .manga-page { padding: 14px; gap: 14px; width: 100%; }
+ .index-page.reveal-edition .manga-page { display: flex; flex-direction: column; }
+ .reveal-edition .input-panel { padding: 24px 14px; }
+ .reveal-edition .mascot-panels-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+ .reveal-edition .mascot-panels-wrapper > .panel { min-height: 220px; }
+ .reveal-edition .mascot-panels-wrapper .speech-bubble { font-size: .85rem; }
+ .result-card.panel { grid-template-columns: 1fr; }
+ .cover-stage { padding: 20px; }
+ .cover-stage .magazine-cover, .cover-placeholder { max-width: 300px; }
+ .reveal-copy { padding: 24px 20px; }
+ .reveal-copy h1 { font-size: 3.5rem; }
+ .explore-panel.panel { padding: 18px 12px; }
+ .explore-tab { font-size: .88rem; padding: 10px; }
+ .result-actions .manga-button { flex: 1 1 190px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+/* The legacy home grid reserved four fractional rows; size rows to content. */
+body.index-page.reveal-edition .manga-page { grid-template-rows: auto auto auto; }
+body.index-page.reveal-edition .input-panel,
+body.index-page.reveal-edition .mascot-panels-wrapper { grid-row: 3; }
+.skip-link { top: 0; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+.skip-link:focus { clip-path: none; width: auto; height: auto; overflow: visible; }
+.reveal-edition .site-footer-info { background: var(--page-bg); color: var(--text-color); width: auto; padding: 10px 18px; margin-top: 18px; border: 2px solid #222; }
+.reveal-edition .site-footer-info .tip-button { font-size: 1rem; }
+@media (max-width: 700px) {
+ body.index-page.reveal-edition .input-panel,
+ body.index-page.reveal-edition .mascot-panels-wrapper { grid-row: auto; }
+ .reveal-copy h1 { font-size: 2.8rem; }
+}
