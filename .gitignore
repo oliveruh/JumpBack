@@ -9,3 +9,6 @@ Thumbs.db
 
 # Ignore some stuff I'm working on
 /src/data/scripts
+# Local test tools and browser artifacts
+node_modules/
+test-artifacts/
