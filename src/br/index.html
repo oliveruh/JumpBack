@@ -16,31 +16,29 @@
  <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
  <meta name="theme-color" content="#F9622F">
  <link rel="icon" href="../assets/favicon/favicon.ico">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Permanent+Marker&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+ <link rel="preload" href="../assets/fonts/bangers-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="../css/style.css">
  <link rel="stylesheet" href="../css/reveal.css">
  <script type="module" src="scripts/index.js"></script>
 </head>
 <body class="index-page reveal-edition">
 <a class="skip-link" href="#inputPanel">Ir para a busca</a>
-<div class="manga-page"><header class="header-panel panel">
-  <a href="index.html" id="homeLink" aria-label="Início do JumpBack"><img class="logo" src="../assets/images/logo.png" alt="JumpBack" width="250" height="120"></a>
+<div class="manga-page"><header class="header-panel panel masthead">
+  <div class="brand-lockup"><a href="index.html" id="homeLink" aria-label="Início do JumpBack"><img class="logo" src="../assets/images/logo.png" alt="JumpBack" width="250" height="120"></a><p class="brand-caption">Uma viagem no tempo. Um mundo de mangás.</p></div>
+  <nav class="language-nav" aria-label="Idioma"><span class="current-language" aria-current="true">PT-BR</span><a id="languageLink" href="../index.html" lang="en">EN</a></nav>
  </header>
- <nav class="language-nav" aria-label="Idioma"><a id="languageLink" href="../index.html" lang="en">English</a></nav>
 <main id="inputPanel" class="input-panel panel">
  <p class="eyebrow">WEEKLY SHONEN JUMP × SUA HISTÓRIA</p>
- <h1>Descubra sua Jump de nascimento!</h1>
- <p class="speech-bubble">Uma data. Uma capa. Seu capítulo na história dos mangás.</p>
+ <h1>Seu dia.<br>Sua <span class="ink-highlight">Jump.</span></h1>
+ <p class="hero-intro">Uma data. Uma capa. Seu capítulo na história dos mangás.</p>
  <form id="dateForm" novalidate>
   <label for="birthdatePicker">Sua data de nascimento</label>
-  <input id="birthdatePicker" class="date-picker" type="date" required aria-describedby="coverage errorMessage">
+  <div class="date-action-row"><input id="birthdatePicker" class="date-picker" type="date" required aria-describedby="coverage errorMessage"><button id="findButton" class="manga-button" type="submit" disabled>Revelar minha Jump <span aria-hidden="true">→</span></button></div>
   <p id="coverage">Verificando a cobertura do acervo…</p>
   <p id="errorMessage" class="error-message" role="alert" hidden></p>
-  <button id="findButton" class="manga-button" type="submit" disabled>Encontrar minha Jump!</button>
   <p id="formStatus" role="status" aria-live="polite"></p>
  </form>
- <p class="archive-note">Buscamos a data de capa registrada mais próxima até a data escolhida. A data de capa pode diferir da circulação real.</p>
+ <details class="how-it-works"><summary>Como encontramos sua edição?</summary><p class="archive-note">Buscamos a data de capa registrada mais próxima até a data escolhida. A data de capa pode diferir da circulação real.</p></details>
 </main>
 <aside class="mascot-panels-wrapper" aria-label="Personagens da Jump">
  <div class="mascot-panel panel"><p class="speech-bubble" id="mascot1SpeechBubble">Vamos encontrar sua Jump?</p><div class="mascot" id="mascot1Image" role="img" aria-label="Personagem da Jump"></div></div>

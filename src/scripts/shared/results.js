@@ -80,8 +80,8 @@ export async function startResults() {
         byId('resultCard').hidden = false;
         byId('resultCard').classList.add('is-revealed');
         byId('issueNumber').textContent = `#${issue.issue_number}`;
-        byId('coverDate').textContent = text('Cover date: ', 'Data de capa: ') + formatDate(issue.cover_date);
-        byId('selectedDate').textContent = text('Your date: ', 'Sua data: ') + formatDate(value);
+        byId('coverDate').textContent = formatDate(issue.cover_date);
+        byId('selectedDate').textContent = formatDate(value);
         document.title = `JumpBack — #${issue.issue_number} · ${formatDate(issue.cover_date)}`;
         const known = issue.table_of_contents.filter(entry => entry.series_id != null && entry.series_title);
         const unique = [...new Map(known.map(entry => [entry.series_id, entry])).values()].slice(0, 3);

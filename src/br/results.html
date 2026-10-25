@@ -16,18 +16,17 @@
  <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
  <meta name="theme-color" content="#F9622F">
  <link rel="icon" href="../assets/favicon/favicon.ico">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Boogaloo&family=Permanent+Marker&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+ <link rel="preload" href="../assets/fonts/bangers-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="../css/style.css">
  <link rel="stylesheet" href="../css/reveal.css">
  <script type="module" src="scripts/results.js"></script>
 </head>
 <body class="results-page reveal-edition">
 <a class="skip-link" href="#resultCard">Ir para o resultado</a>
-<div class="manga-page"><header class="header-panel panel">
-  <a href="index.html" id="homeLink" aria-label="Início do JumpBack"><img class="logo" src="../assets/images/logo.png" alt="JumpBack" width="250" height="120"></a>
+<div class="manga-page"><header class="header-panel panel masthead">
+  <div class="brand-lockup"><a href="index.html" id="homeLink" aria-label="Início do JumpBack"><img class="logo" src="../assets/images/logo.png" alt="JumpBack" width="250" height="120"></a><p class="brand-caption">Uma viagem no tempo. Um mundo de mangás.</p></div>
+  <nav class="language-nav" aria-label="Idioma"><span class="current-language" aria-current="true">PT-BR</span><a id="languageLink" href="../index.html" lang="en">EN</a></nav>
  </header>
- <nav class="language-nav" aria-label="Idioma"><a id="languageLink" href="../index.html" lang="en">English</a></nav>
 <main class="reveal-main" id="resultsMain" aria-busy="true">
  <p id="resultStatus" class="result-status" role="status" aria-live="polite">Encontrando sua Jump…</p>
  <section id="errorPanel" class="panel error-panel" aria-labelledby="errorTitle" hidden>
@@ -44,27 +43,27 @@
   </figure>
   <div class="reveal-copy">
    <p class="eyebrow">SUA JUMP DE NASCIMENTO</p>
-   <h1 id="resultTitle">Weekly<br>Shonen Jump</h1>
+   <h1 id="resultTitle">Weekly Shonen Jump</h1>
    <p class="issue-stamp">Edição no acervo <strong id="issueNumber"></strong></p>
-   <p id="coverDate" class="reveal-date"></p>
-   <p id="selectedDate"></p>
+   <dl class="date-facts"><div><dt>Data de capa registrada</dt><dd id="coverDate" class="reveal-date"></dd></div><div><dt>Sua data</dt><dd id="selectedDate"></dd></div></dl>
    <p class="archive-note">Data de capa registrada mais próxima até sua data. Ela pode diferir da circulação real.</p>
    <section class="featured-series" aria-labelledby="featuredTitle">
     <h2 id="featuredTitle">Nesta edição</h2>
     <ul id="featuredSeries"></ul>
-    <p class="small-note">Extraído do sumário registrado; não é um ranking de popularidade.</p>
+    <p class="small-note">Uma seleção do sumário registrado.</p>
    </section>
    <p class="card-signature">JUMPBACK · SEU CAPÍTULO COMEÇA AQUI</p>
   </div>
  </article>
  <div class="result-actions">
-  <a id="backButton" class="manga-button" href="index.html">Pesquisar outra data</a>
-  <button id="shareButton" class="manga-button" type="button" disabled>Compartilhar minha Jump</button>
+  <a id="backButton" class="manga-button secondary-button" href="index.html">Trocar data</a>
+  <button id="shareButton" class="manga-button" type="button" disabled>Compartilhar minha Jump <span aria-hidden="true">↗</span></button>
  </div>
  <p id="shareStatus" class="share-status" role="status" aria-live="polite"></p>
  <div id="manualShare" hidden><label for="shareURL">Copie este link (ele contém a data escolhida):</label><input id="shareURL" readonly type="url"></div>
  <p class="small-note share-note">Tire um print do cartão ou compartilhe o link com a data escolhida.</p>
  <section id="explorePanel" class="panel explore-panel" aria-labelledby="exploreTitle" hidden>
+  <p class="eyebrow explore-eyebrow">TEM MAIS NESTAS PÁGINAS</p>
   <h2 id="exploreTitle">Vire a página</h2>
   <div class="explore-tabs" role="tablist" aria-label="Mais sobre sua Jump">
    <button id="contentsTabButton" class="explore-tab" role="tab" aria-selected="true" tabindex="0" aria-controls="contentsTabPanel" type="button" data-tab="contents">Sumário</button>

@@ -224,3 +224,25 @@ This package and binary are not project dependencies and are not deployed.
 - Social preview cards are generic static assets. Screenshot sharing is manual.
 - Experimental refactor files remain for reference and are not supported entry
   points. The import-graph test guards against accidentally loading them.
+
+## Visual and UX polish follow-up
+
+The working branch now includes a second visual pass on the existing identity:
+
+- A compact masthead with a clear language switch and a quieter manga background.
+- A stronger Bangers/Rubik hierarchy, one prominent search action, aligned native
+  date control, concise archive bounds, and expandable matching explanation.
+- Existing character illustrations retained in yellow and peach comic panels.
+- A larger, restrained cover presentation; selected date and recorded cover date
+  grouped as a semantic description list. Sharing is the primary result action.
+- Mobile result actions remain accessible in a fixed bottom toolbar with safe-area
+  spacing. Extra tabs scroll horizontally; long contents use ordinary page scroll.
+- The existing Bangers and Rubik fonts are served locally (four Latin WOFF2 files,
+  about 80 KB total), with included SIL Open Font Licenses. No external font CDN
+  request or additional runtime dependency is required.
+
+EN/PT desktop and mobile captures were inspected using the real source cover for
+record 1576 (2000-01-01). The 9 automated tests and 44 browser scenarios passed.
+The image-generated presentation previews are based on those rendered screens;
+they are visual illustrations rather than pixel-exact browser evidence. Historical
+sources and matching rules are unchanged. No deployment was performed.

@@ -1,6 +1,6 @@
 import { loadCatalog, fetchJSON } from './data.js';
 import { validateDate, readDate, resultURL, localToday } from './catalog.js';
-import { br, text, formatDate, dateError } from './locale.js';
+import { br, text, dateError } from './locale.js';
 
 export async function startHome() {
     const form = document.getElementById('dateForm');
@@ -24,7 +24,8 @@ export async function startHome() {
             catalog = await loadCatalog();
             picker.min = catalog[0].cover_date;
             picker.max = [catalog.at(-1).cover_date, localToday()].sort()[0];
-            coverage.textContent = text('Archive: ', 'Acervo: ') + `${formatDate(catalog[0].cover_date)} – ${formatDate(catalog.at(-1).cover_date)}`;
+            const shortDate = date => new Date(`${date}T12:00:00Z`).toLocaleDateString(br ? 'pt-BR' : 'en-US', { timeZone: 'UTC' });
+            coverage.textContent = text('Available archive: ', 'Acervo disponível: ') + `${shortDate(catalog[0].cover_date)} — ${shortDate(catalog.at(-1).cover_date)}`;
             status.textContent = '';
             showError('');
         } catch {
