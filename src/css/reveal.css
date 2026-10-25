@@ -296,3 +296,5 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+/* Neutralize the legacy small-screen hover shadow on the unboxed search area. */
+.reveal-edition .input-panel:hover { box-shadow: none; }
