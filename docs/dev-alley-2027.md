@@ -225,24 +225,29 @@ This package and binary are not project dependencies and are not deployed.
 - Experimental refactor files remain for reference and are not supported entry
   points. The import-graph test guards against accidentally loading them.
 
-## Visual and UX polish follow-up
+## Classic visual direction — 26 October 2026
 
-The working branch now includes a second visual pass on the existing identity:
+The visual follow-up now follows the owner's original JumpBack screenshot:
 
-- A compact masthead with a clear language switch and a quieter manga background.
-- A stronger Bangers/Rubik hierarchy, one prominent search action, aligned native
-  date control, concise archive bounds, and expandable matching explanation.
-- Existing character illustrations retained in yellow and peach comic panels.
-- A larger, restrained cover presentation; selected date and recorded cover date
-  grouped as a semantic description list. Sharing is the primary result action.
-- Mobile result actions remain accessible in a fixed bottom toolbar with safe-area
-  spacing. Extra tabs scroll horizontally; long contents use ordinary page scroll.
-- The existing Bangers and Rubik fonts are served locally (four Latin WOFF2 files,
-  about 80 KB total), with included SIL Open Font Licenses. No external font CDN
-  request or additional runtime dependency is required.
+- The centered logo is back inside the orange diagonal-striped masthead.
+- The original manga collage is more visible around the paper page.
+- White halftone panels, thick black borders, small skew transforms and offset
+  shadows frame the search and both character panels.
+- The orange comic heading and explanatory speech bubble are centered above the
+  vertically stacked date field and orange Find My Jump action.
+- The existing character illustrations appear beneath their speech bubbles;
+  they load through the working shared implementation in both languages.
+- Results use the same masthead, ink outlines, halftone information panel and
+  orange controls, while preserving the larger cover, series, extras and sharing.
+- Mobile keeps the accessible form and fixed result actions. Extra tabs still
+  scroll horizontally; long contents use ordinary page scroll.
+- Bangers/Rubik are still local, licensed WOFF2 assets. No new dependencies or
+  historical source changes were introduced.
 
-EN/PT desktop and mobile captures were inspected using the real source cover for
-record 1576 (2000-01-01). The 9 automated tests and 44 browser scenarios passed.
-The image-generated presentation previews are based on those rendered screens;
-they are visual illustrations rather than pixel-exact browser evidence. Historical
-sources and matching rules are unchanged. No deployment was performed.
+Validation: the 9 automated tests and 44 browser scenarios passed. EN/PT captures
+were inspected at desktop and mobile sizes. The image below is an actual rendered
+PT-BR homepage at 1024×900, with a sample date entered; it is not an AI mockup.
+
+![Classic JumpBack homepage](images/classic-home.jpg)
+
+The implementation remains on the working feature branch; no deployment was made.
