@@ -220,7 +220,7 @@ This package and binary are not project dependencies and are not deployed.
   reader or live Neocities deployment was tested in this task. Native share API
   success/cancellation/failure was simulated; OS share sheets require device QA.
 - Clipboard support depends on browser permissions and secure context. Manual
-  copying remains available. Fonts have system fallbacks if Google Fonts fails.
+  copying remains available. Fonts have system fallbacks if local WOFF2 loading fails.
 - Social preview cards are generic static assets. Screenshot sharing is manual.
 - Experimental refactor files remain for reference and are not supported entry
   points. The import-graph test guards against accidentally loading them.
@@ -239,8 +239,8 @@ The visual follow-up now follows the owner's original JumpBack screenshot:
   they load through the working shared implementation in both languages.
 - Results use the same masthead, ink outlines, halftone information panel and
   orange controls, while preserving the larger cover, series, extras and sharing.
-- Mobile keeps the accessible form and fixed result actions. Extra tabs still
-  scroll horizontally; long contents use ordinary page scroll.
+- Mobile keeps the accessible form and fixed result actions. Extra tabs wrap
+  into visible rows; long contents use ordinary page scroll.
 - Bangers/Rubik are still local, licensed WOFF2 assets. No new dependencies or
   historical source changes were introduced.
 
@@ -249,5 +249,37 @@ were inspected at desktop and mobile sizes. The image below is an actual rendere
 PT-BR homepage at 1024×900, with a sample date entered; it is not an AI mockup.
 
 ![Classic JumpBack homepage](images/classic-home.jpg)
+
+### Detail polish within the classic identity
+
+The follow-up keeps the orange masthead, original logo, manga collage, halftone
+panels, speech bubbles, character art and comic typefaces. Changes are limited to
+the shared stylesheet, documentation and real browser captures:
+
+- Matching date field and search-button widths, tighter vertical rhythm, and
+  readable 12px coverage text instead of the previous 10px mobile helper.
+- Stronger muted-text contrast, a visible invalid-field border, and removal of
+  the legacy error-text shadow.
+- A mobile masthead grid that reserves space for the language switch without
+  the previous fixed horizontal logo offset; language controls are 40px high.
+- Larger character-bubble text on mobile; character panels stack at 380px and
+  below so long messages remain readable.
+- More comfortable result-title line height, metadata spacing and series rows,
+  plus a stronger cover shadow against its dark backing.
+- Extras tabs wrap on mobile, exposing all categories without sideways scrolling.
+  Existing arrow-key/End navigation and selected-tab semantics are preserved.
+- Stationary paper-panel shadows and consistent disabled-button feedback.
+
+Validation: 9 automated tests and all 44 browser scenarios passed. Additional
+browser QA covered home and results in both languages at 320, 390, 768 and 1024px
+(16 viewport/page/language combinations): no document overflow or logo/language
+overlap, matching input/button widths, search visible within an 844px viewport,
+visible keyboard focus, and mobile tabs within the viewport with 44px touch
+targets. All assertions passed. Desktop/mobile captures were visually reviewed.
+These are Chromium checks; the device/browser limitations above still apply.
+
+![Polished mobile homepage](images/classic-home-mobile.jpg)
+
+![Polished result card using the existing 2000-01-01 source cover](images/classic-result-card.jpg)
 
 The implementation remains on the working feature branch; no deployment was made.

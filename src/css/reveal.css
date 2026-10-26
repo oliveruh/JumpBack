@@ -30,7 +30,7 @@
 :root {
   --ink: #25231f;
   --paper: #f4f1ea;
-  --muted-ink: #655f54;
+  --muted-ink: #575247;
   --comic-orange: #f7622d;
   --comic-yellow: #ffe352;
   --font-heading-comic: Bangers, Impact, 'Arial Narrow', sans-serif;
@@ -63,6 +63,8 @@ body.index-page.reveal-edition .manga-page {
   grid-template-rows: auto auto;
 }
 .reveal-edition .panel { min-width: 0; }
+/* Paper panels stay still while controls retain their tactile feedback. */
+.reveal-edition .panel:hover { box-shadow: 5px 5px 0 #0004; }
 .reveal-edition .header-panel.masthead {
   grid-column: 1 / -1;
   grid-row: 1;
@@ -96,7 +98,7 @@ body.index-page.reveal-edition .manga-page {
 }
 .brand-caption { display: none; }
 .language-nav { position: absolute; z-index: 2; right: 12px; top: 50%; transform: translateY(-50%) skew(1deg, .5deg); display: flex; align-items: center; gap: 3px; padding: 3px; border: 2px solid var(--ink); border-radius: 3px; background: white; }
-.language-nav a, .current-language { display: grid; place-content: center; min-width: 48px; min-height: 36px; padding: 4px 9px; font-size: 12px; font-weight: 700; text-decoration: none; border-radius: 2px; }
+.language-nav a, .current-language { display: grid; place-content: center; min-width: 48px; min-height: 40px; padding: 4px 9px; font-size: 12px; font-weight: 700; text-decoration: none; border-radius: 2px; }
 .current-language { background: var(--ink); color: white; }
 .language-nav a:hover { background: #eee8d9; }
 .skip-link { position: fixed; left: 16px; top: 0; z-index: 99; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
@@ -118,7 +120,7 @@ body.index-page.reveal-edition .manga-page {
 .input-panel > .eyebrow { display: none; }
 .reveal-edition .input-panel h1 {
   padding: 0;
-  margin: 0 0 30px;
+  margin: 0 0 24px;
   font-family: var(--font-heading-comic);
   font-weight: 400;
   font-size: clamp(38px, 4vw, 52px);
@@ -131,9 +133,9 @@ body.index-page.reveal-edition .manga-page {
 .ink-highlight { position: relative; display: inline-block; color: var(--comic-orange); }
 .ink-highlight::after { content: ''; display: block; position: absolute; z-index: -1; left: -4px; right: -6px; bottom: 1px; height: .21em; background: var(--comic-yellow); transform: rotate(-2deg); }
 .hero-intro.speech-bubble { width: min(440px, 100%); max-width: none; margin: 0 0 18px; padding: 16px 18px; font: 400 14px/1.6 var(--font-body); color: var(--ink); background: white var(--comic-dot-pattern); border: 2px solid var(--ink); border-radius: 14px; transform: skew(1deg, .5deg); }
-#dateForm { width: 100%; margin: 24px 0 10px; }
+#dateForm { width: 100%; margin: 20px 0 8px; }
 #dateForm label { display: block; margin-bottom: 10px; font-size: 13px; font-weight: 700; }
-.date-action-row { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.date-action-row { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .reveal-edition .date-picker {
   display: block;
   width: 100%;
@@ -153,12 +155,13 @@ body.index-page.reveal-edition .manga-page {
   text-align: center;
 }
 body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; outline-offset: 4px; border-color: var(--ink); box-shadow: none; }
-#coverage { margin-top: 10px; font-size: 11px; color: var(--muted-ink); }
-#formStatus { min-height: 1.5em; margin-top: 10px; font-size: 13px; }
-.reveal-edition .error-message { display: block; margin: 12px 0 0; padding: 12px; font-size: 14px; line-height: 1.5; color: #971d1d; background: #fff0e8; border-left: 3px solid #b33125; transform: none; }
+#coverage { margin: 12px auto 0; font-size: 12px; line-height: 1.6; color: var(--muted-ink); text-wrap: balance; }
+#formStatus { min-height: 1.5em; margin-top: 8px; font-size: 13px; }
+.reveal-edition .error-message { display: block; margin: 12px 0 0; padding: 12px; font-size: 14px; line-height: 1.5; color: #971d1d; background: #fff0e8; border-left: 3px solid #b33125; text-shadow: none; transform: none; }
+.reveal-edition .date-picker[aria-invalid='true'] { border-color: #971d1d; background-color: #fff8f4; }
 .archive-note, .small-note, .source-note { font-size: 12px; line-height: 1.6; color: var(--muted-ink); }
 .how-it-works { max-width: 48ch; font-size: 12px; }
-.how-it-works summary { cursor: pointer; color: var(--muted-ink); text-underline-offset: 4px; }
+.how-it-works summary { min-height: 44px; padding: 10px 4px; cursor: pointer; color: var(--muted-ink); text-underline-offset: 4px; }
 .how-it-works summary:hover { color: var(--ink); }
 .how-it-works .archive-note { margin-top: 10px; }
 .reveal-edition .manga-button {
@@ -182,13 +185,13 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
   cursor: pointer;
   transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
 }
-.reveal-edition .manga-button:hover { background-color: #ffb34f; box-shadow: 1px 1px 0 var(--ink); transform: translate(2px, 2px); }
+.reveal-edition .manga-button:hover { background-color: #ffb34f; box-shadow: 1px 1px 0 var(--ink); transform: translate(2px, 2px); filter: none; }
 .reveal-edition .manga-button:active { box-shadow: none; transform: translate(3px, 3px); }
-.reveal-edition .manga-button:disabled { opacity: .55; cursor: wait; transform: none; }
+.reveal-edition .manga-button:disabled { opacity: .65; cursor: wait; transform: none; filter: none; box-shadow: 3px 3px 0 #0003; }
 .reveal-edition .manga-button span[aria-hidden] { font-size: 21px; line-height: 1; }
 .reveal-edition .secondary-button { background: #fff4ad; box-shadow: 3px 3px 0 #0003; color: var(--ink); border-color: var(--ink); }
 .reveal-edition .secondary-button:hover { background: #eee8d9; color: var(--ink); box-shadow: none; transform: none; }
-.reveal-edition #findButton { font: 400 24px var(--font-heading-comic); letter-spacing: .02em; padding: 10px 22px; }
+.reveal-edition #findButton { width: min(300px, 100%); font: 400 24px var(--font-heading-comic); letter-spacing: .02em; padding: 10px 22px; }
 .reveal-edition .mascot-panels-wrapper { grid-column: 2; grid-row: 2; display: flex; flex-direction: column; gap: 14px; min-width: 0; padding: 0; }
 .reveal-edition .mascot-panels-wrapper > .panel { display: flex; flex-direction: column; align-items: center; width: 100%; min-height: 260px; margin: 0; padding: 0; overflow: hidden; border: 3px solid var(--ink); background: white var(--comic-dot-pattern); box-shadow: 5px 5px 0 #0004; transform: skew(-1deg, -.5deg); }
 .reveal-edition .mascot-panels-wrapper .speech-bubble { align-self: stretch; max-width: none; margin: 14px 12px 8px; padding: 10px; font: 400 13px/1.5 var(--font-body); border: 2px solid var(--ink); border-radius: 14px; background: white; color: var(--ink); transform: skew(1deg, .5deg); z-index: 2; }
@@ -197,27 +200,27 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
 .reveal-main { min-width: 0; }
 .result-status { margin: 0 0 18px; font-size: 13px; color: var(--muted-ink); }
 .result-status:empty { display: none; }
-.result-card.panel { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: stretch; gap: 0; padding: 0; overflow: hidden; background: white; border: 2px solid var(--ink); border-radius: 2px; box-shadow: 5px 5px 0 var(--ink); transform: none; }
+.result-card.panel { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: stretch; gap: 0; padding: 0; overflow: hidden; background: white; border: 2px solid var(--ink); border-radius: 2px; box-shadow: 5px 5px 0 #0004; transform: none; }
 .cover-stage { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-width: 0; min-height: 500px; padding: 30px; background: #292929 var(--comic-dot-pattern); border-right: 2px solid var(--ink); }
-.cover-stage .magazine-cover { display: block; width: 100%; max-width: 330px; height: auto; max-height: 510px; object-fit: contain; box-shadow: 9px 10px 0 #25231f28; transform: rotate(-2deg); }
+.cover-stage .magazine-cover { display: block; width: 100%; max-width: 330px; height: auto; max-height: 510px; object-fit: contain; box-shadow: 8px 10px 0 #0005; transform: rotate(-2deg); }
 .cover-placeholder { display: grid; place-content: center; width: min(330px, 100%); min-height: 390px; padding: 24px; text-align: center; font: 400 28px var(--font-heading-comic); color: var(--muted-ink); background: #e2dac7; border: 2px dashed #a69d88; }
 #coverStatus { font-size: 12px; color: #f4f1ea; text-align: center; }
 #coverStatus:empty { display: none; }
 #retryCoverButton { padding: 10px 14px; font: 500 13px var(--font-body); color: var(--ink); background: var(--comic-yellow); border: 2px solid var(--ink); cursor: pointer; }
 .reveal-copy { padding: 32px 30px 24px; background: white var(--comic-dot-pattern); }
 .reveal-copy > .eyebrow { color: #a03b19; }
-.reveal-copy h1 { max-width: 100%; margin: 16px 0 18px; font: 400 clamp(40px, 4.2vw, 52px)/1 var(--font-heading-comic); letter-spacing: .02em; color: var(--header-bg); text-shadow: 2px 2px 0 #0002; }
-.issue-stamp { display: inline-flex; align-items: center; gap: 12px; padding: 4px 10px; border: 1px solid #e5d279; background: #fff5bd; font-size: 11px; }
+.reveal-copy h1 { max-width: 100%; margin: 14px 0 18px; font: 400 clamp(40px, 4.2vw, 52px)/1.08 var(--font-heading-comic); letter-spacing: .02em; color: var(--header-bg); text-shadow: 2px 2px 0 #0002; }
+.issue-stamp { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; padding: 4px 10px; border: 1px solid #c9ad43; background: #fff5bd; font-size: 12px; }
 .issue-stamp strong { font: 400 28px var(--font-heading-comic); }
-.date-facts { display: grid; gap: 14px; margin: 22px 0 12px; }
-.date-facts dt { margin-bottom: 3px; font-size: 11px; color: var(--muted-ink); }
+.date-facts { display: grid; gap: 16px; margin: 22px 0 14px; }
+.date-facts dt { margin-bottom: 4px; font-size: 12px; color: var(--muted-ink); }
 .date-facts dd { margin: 0; font-size: 14px; line-height: 1.45; }
 .date-facts .reveal-date { font-weight: 700; }
-.reveal-copy .archive-note { max-width: 43ch; font-size: 11px; }
+.reveal-copy .archive-note { max-width: 43ch; font-size: 12px; }
 .featured-series { margin-top: 23px; padding-top: 18px; border-top: 1px solid #dcd5c6; }
 .featured-series h2 { font: 400 29px var(--font-heading-comic); }
 .featured-series ul { margin: 10px 0; list-style: none; }
-.featured-series li { padding: 7px 0; font-size: 14px; font-weight: 500; }
+.featured-series li { padding: 8px 0; font-size: 14px; font-weight: 500; line-height: 1.5; overflow-wrap: anywhere; }
 .featured-series li::before { content: ''; display: inline-block; width: 6px; height: 6px; margin-right: 10px; vertical-align: 2px; background: var(--comic-orange); transform: rotate(45deg); }
 .card-signature { margin-top: 24px; font-size: 9px; font-weight: 700; letter-spacing: .12em; color: var(--muted-ink); }
 .result-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
@@ -229,8 +232,8 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
 .explore-eyebrow { color: #a03b19; }
 .explore-panel > h2 { margin-top: 6px; font: 400 40px var(--font-heading-comic); }
 .explore-tabs { display: flex; flex-wrap: nowrap; gap: 8px; margin: 22px 0 16px; padding-bottom: 6px; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: thin; }
-.explore-tab { flex: none; min-height: 46px; padding: 10px 12px; font: 500 13px var(--font-body); color: var(--ink); background: var(--tab-bg); border: 2px solid var(--ink); cursor: pointer; }
-.explore-tab:hover { color: var(--ink); }
+.explore-tab { flex: none; min-height: 46px; padding: 10px 12px; font: 500 13px var(--font-body); color: var(--ink); background: var(--tab-bg); border: 2px solid var(--ink); border-radius: 3px; cursor: pointer; }
+.explore-tab:hover { color: var(--ink); background: var(--accent-color); }
 .explore-tab:focus-visible { outline-offset: -3px; }
 .explore-tab[aria-selected='true'] { color: white; background: #303030; }
 .explore-content { min-height: 120px; padding: 10px 0; font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
@@ -242,7 +245,7 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
 .source-note { font-style: italic; }
 .error-panel.panel { gap: 18px; padding: 44px 30px; text-align: center; border: 2px solid var(--ink); background: #fff5bd; transform: none; }
 .error-panel h1 { font: 400 44px var(--font-heading-comic); }
-.reveal-edition .site-footer-info { justify-content: center; max-width: 960px; width: auto; margin: 14px 0 0; padding: 6px 10px; font-size: 11px; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); }
+.reveal-edition .site-footer-info { justify-content: center; flex-wrap: wrap; max-width: 960px; width: auto; margin: 18px 0 0; padding: 8px 12px; font-size: 11px; color: var(--ink); background: var(--paper); border: 2px solid var(--ink); }
 .reveal-edition .site-footer-info .tip-button { min-height: 36px; padding: 6px 10px; font-size: 11px; background-color: var(--accent-color); border: 2px solid var(--ink); box-shadow: 2px 2px 0 #0003; }
 .is-revealed { animation: reveal-card 220ms ease-out both; }
 .is-revealed .reveal-copy { animation: reveal-copy 320ms ease-out both; }
@@ -257,22 +260,24 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
   body.results-page.reveal-edition { padding-bottom: 110px; }
   .reveal-edition .manga-page { padding: 12px; gap: 16px; }
   .index-page.reveal-edition .manga-page { display: flex; flex-direction: column; }
-  .reveal-edition .header-panel.masthead { height: 76px; min-height: 76px; gap: 12px; padding: 0 76px; }
-  .reveal-edition .header-panel .logo { width: 200px; height: 96px; }
+  .reveal-edition .header-panel.masthead { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: minmax(0, 1fr); height: 76px; min-height: 76px; gap: 4px; padding: 0 8px; }
+  .masthead .brand-lockup { min-width: 0; }
+  .masthead .brand-lockup a { max-width: 100%; }
+  .reveal-edition .header-panel .logo { width: 180px; max-width: 100%; height: 96px; }
   .brand-caption { display: none; }
-  .language-nav { right: 7px; padding: 2px; gap: 1px; }
-  .language-nav a, .current-language { min-width: 42px; min-height: 34px; padding: 4px 7px; font-size: 11px; }
+  .language-nav { position: static; transform: none; padding: 2px; gap: 1px; }
+  .language-nav a, .current-language { min-width: 42px; min-height: 40px; padding: 4px 7px; font-size: 11px; }
   .reveal-edition .input-panel { min-height: 0; padding: 28px 16px 22px; }
   .reveal-edition .input-panel h1 { margin: 0 0 24px; font-size: clamp(32px, 8.5vw, 40px); }
   .hero-intro.speech-bubble { margin-bottom: 12px; padding: 14px 12px; font-size: 13px; }
   .eyebrow { font-size: 9px; letter-spacing: .11em; }
-  #dateForm { margin: 25px 0 12px; }
+  #dateForm { margin: 20px 0 8px; }
   .reveal-edition .date-picker { font-size: 16px; }
   .reveal-edition .manga-button { min-height: 52px; }
-  #coverage { font-size: 10px; }
+  #coverage { font-size: 12px; }
   .reveal-edition .mascot-panels-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding-top: 5px; }
   .reveal-edition .mascot-panels-wrapper > .panel { display: flex; flex-direction: column; min-height: 230px; }
-  .reveal-edition .mascot-panels-wrapper .speech-bubble { margin: 10px 8px 0; font-size: 10px; padding: 9px; }
+  .reveal-edition .mascot-panels-wrapper .speech-bubble { margin: 10px 8px 0; font-size: 12px; padding: 9px; }
   .reveal-edition .mascot, .reveal-edition .mascot2 { min-height: 125px; width: 100%; height: 150px; margin: 0; }
   .result-status { font-size: 12px; margin-bottom: 14px; }
   .result-card.panel { grid-template-columns: 1fr; }
@@ -280,7 +285,7 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
   .cover-stage .magazine-cover { max-width: 200px; max-height: 280px; }
   .cover-placeholder { width: 230px; max-width: 100%; min-height: 300px; }
   .reveal-copy { padding: 25px 20px 22px; }
-  .reveal-copy h1 { max-width: 12ch; font-size: 44px; }
+  .reveal-copy h1 { max-width: none; font-size: clamp(34px, 10vw, 44px); }
   .date-facts { gap: 12px; margin-top: 18px; }
   .featured-series { margin-top: 20px; padding-top: 15px; }
   .card-signature { font-size: 8px; }
@@ -292,15 +297,16 @@ body.reveal-edition .date-picker:focus-visible { outline: 3px solid #146a9e; out
   #manualShare { scroll-margin-block: 100px; }
   .explore-panel.panel { margin-top: 28px; padding: 22px 12px; }
   .explore-panel > h2 { font-size: 36px; }
-  .explore-tabs { gap: 8px; margin-top: 16px; padding: 0 3px 6px; }
+  .explore-tabs { flex-wrap: wrap; gap: 8px; margin-top: 16px; padding: 0 0 6px; overflow: visible; }
+  .explore-tab { flex: 1 0 auto; }
   .explore-content { font-size: 13px; }
   .reveal-edition .site-footer-info { font-size: 10px; }
 }
 @media (max-width: 380px) {
-  .masthead .brand-lockup { transform: translateX(-42px); }
+  .reveal-edition .mascot-panels-wrapper { grid-template-columns: 1fr; }
+  .reveal-edition .mascot-panels-wrapper > .panel { min-height: 250px; }
+  .reveal-edition .mascot-panels-wrapper .speech-bubble { font-size: 13px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
-/* Keep the same ink shadow on hover so the classic panel does not jump. */
-.reveal-edition .input-panel:hover { box-shadow: 5px 5px 0 #0004; }
