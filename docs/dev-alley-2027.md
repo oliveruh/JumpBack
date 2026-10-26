@@ -311,4 +311,50 @@ still apply. Images above now show the latest composition.
 
 ![Complete result page with the refined composition](images/classic-results.jpg)
 
+### Compact result spread with a larger cover
+
+The latest result layout supersedes the earlier full-width extras panel:
+
+- A wider result page (up to 1120px) places the cover beside one compact details
+  column containing metadata, the three featured series and all five extras tabs.
+  Home-page composition is unchanged.
+- The cover can reach 400px wide / 550px high, with its original proportions, a
+  paper outline and a dark radial backing. On desktop it stays near the top while
+  longer extras are explored. Mobile allows up to 240px wide / 320px high.
+- A smaller masthead, compact title/stamp row, inline featured-series list and
+  reduced spacing remove redundant vertical gaps. The success announcement stays
+  accessible to assistive technology without taking a separate visible row.
+- Contents initially show four complete source entries. A localized native button
+  expands/reduces the full list, exposes `aria-expanded` / `aria-controls`, and
+  preserves its state when switching tabs. No source entries or titles are removed
+  or truncated. The other extras retain normal page scrolling when needed.
+- No historical data, matching logic, analytics, dependencies or deployment changed.
+
+Measured with the same cached original 2000-01-01 cover, loaded local fonts,
+reduced motion and Chromium, comparing the preceding commit with this layout:
+
+| Viewport | Language | Before: document height | After: document height |
+| --- | --- | ---: | ---: |
+| 1024 × 900 | EN / PT-BR | 1636px | 900px |
+| 1440 × 900 | EN / PT-BR | 1702px | 900px |
+| 390 × 844 | PT-BR | 2473px | 1368px |
+
+At both desktop sizes the default result, all tabs, four-entry contents preview,
+actions and footer fit without document scrolling. The cover's rendered bounds
+at 1024px increased from approximately 346×485px to 397×560px (including rotation).
+This is a layout measurement, not a loading-performance claim. Expanding the
+contents, selecting longer extras, using shorter/narrower viewports or enlarging
+text can still require scrolling. Mobile retains normal page scroll and the fixed
+actions; the larger cover is never cropped to force a fixed-height screen.
+
+Validation: 9 automated tests and **46 browser scenarios passed**, including new
+EN/PT keyboard tests for expansion, collapse and state retention across tabs.
+Before/after checks covered both languages at 320, 390, 768, 1024 and 1440px with
+the real cached cover; all had no horizontal overflow. Additional existing home
+and result viewport checks passed. Desktop/mobile and expanded-list captures were
+visually reviewed. Physical-device, Safari/Firefox and screen-reader limitations
+remain as documented above.
+
+![Compact mobile result with the larger cover](images/compact-result-mobile.jpg)
+
 The implementation remains on the working feature branch; no deployment was made.

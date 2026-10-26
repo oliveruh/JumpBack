@@ -158,7 +158,24 @@ function setupExplore(issue, birthDate) {
             const list = node('ul');
             list.lang = 'en';
             for (const entry of issue.table_of_contents) list.append(node('li', entry.title));
-            panel.append(list);
+            if (list.childElementCount > 4) {
+                list.classList.add('contents-preview');
+                const button = node('button', text(
+                    `Show all ${list.childElementCount} entries`,
+                    `Ver as ${list.childElementCount} entradas`), 'contents-toggle');
+                list.id = 'recordedContents';
+                button.setAttribute('aria-controls', list.id);
+                button.setAttribute('aria-expanded', 'false');
+                button.type = 'button';
+                button.addEventListener('click', () => {
+                    const expanded = button.getAttribute('aria-expanded') !== 'true';
+                    button.setAttribute('aria-expanded', String(expanded));
+                    list.classList.toggle('contents-preview', !expanded);
+                    button.textContent = expanded ? text('Show fewer entries', 'Mostrar menos entradas')
+                        : text(`Show all ${list.childElementCount} entries`, `Ver as ${list.childElementCount} entradas`);
+                });
+                panel.append(list, button);
+            } else panel.append(list);
             if (!list.childElementCount) empty(panel);
             return;
         }

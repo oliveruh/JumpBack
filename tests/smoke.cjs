@@ -183,6 +183,30 @@ const ok = message => { checks++; console.log('PASS ' + message); };
             await page.waitForFunction(() => !document.getElementById('magazineCover').hidden && document.getElementById('magazineCover').naturalWidth > 0);
             assert.equal(await page.locator('#retryCoverButton').isVisible(), false);
         });
+        for (const prefix of ['', '/br']) {
+            await scenario(`${prefix || 'EN'} compact contents expand and collapse with keyboard`, {}, async (page, origin) => {
+                await page.goto(origin + prefix + '/results.html?date=2000-01-01');
+                const toggle = page.locator('.contents-toggle');
+                await toggle.waitFor({ state: 'visible' });
+                const rows = page.locator('#recordedContents li');
+                const total = await rows.count();
+                assert.ok(total > 4, 'The complete source contents remain in the document');
+                assert.equal(await page.locator('#recordedContents li:visible').count(), 4);
+                assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
+                await toggle.focus();
+                await page.keyboard.press('Enter');
+                assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
+                assert.equal(await page.locator('#recordedContents li:visible').count(), total);
+                await page.locator('#statsTabButton').click();
+                await page.locator('#contentsTabButton').click();
+                assert.equal(await page.locator('#recordedContents li:visible').count(), total, 'Reopening the tab preserves expansion');
+                await toggle.focus();
+                await page.keyboard.press('Space');
+                assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
+                assert.equal(await page.locator('#recordedContents li:visible').count(), 4);
+                assert.equal(await page.locator('#shareButton').isEnabled(), true);
+            });
+        }
         for (const mode of ['native', 'cancel', 'native-failure', 'legacy-copy', 'manual-copy']) {
             await scenario(`sharing: ${mode}`, {}, async (page, origin) => {
                 await page.goto(`${origin}/br/results.html?date=2000-01-01&junk=discard#hash`);
