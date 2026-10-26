@@ -282,4 +282,33 @@ These are Chromium checks; the device/browser limitations above still apply.
 
 ![Polished result card using the existing 2000-01-01 source cover](images/classic-result-card.jpg)
 
+### Composition refinement
+
+The next pass improves the arrangement of the same visual elements:
+
+- The home grid gives slightly more room to the character panels (1.9:1).
+  A larger comic headline anchors the main panel, followed by a plain white
+  speech bubble and a compact search group separated by an ink-style dashed rule.
+  Empty status text no longer reserves an unused line beneath the form.
+- Both character panels share the available height, keeping their outer edges
+  aligned with the main search panel. The original artwork and patterns remain.
+- The result card compares recorded cover date and selected date side by side,
+  emphasizes the archive-number stamp and keeps its signature at the bottom of
+  the information column. The cover retains its original source and proportions.
+- A shared toolbar groups the sharing hint and actions directly under the card.
+  Its status and manual-copy fallback only take space when needed. Mobile keeps
+  the fixed actions and visible feedback.
+- The extras heading and tabs share a row on wide screens. The recorded contents
+  use two columns in original row order, with subtle separators. At 700px and
+  below the contents return to one column; tabs still wrap without sideways scroll.
+- EN/PT result HTML adds only the toolbar wrapper. No search, historical data,
+  sharing logic, dependencies or telemetry changed.
+
+Validation repeated successfully: 9 automated tests, 44 browser scenarios and
+the 16 EN/PT viewport/page combinations described above. Full-page desktop/mobile
+captures were reviewed in both languages. The existing browser/device limitations
+still apply. Images above now show the latest composition.
+
+![Complete result page with the refined composition](images/classic-results.jpg)
+
 The implementation remains on the working feature branch; no deployment was made.
