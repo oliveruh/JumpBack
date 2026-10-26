@@ -357,4 +357,46 @@ remain as documented above.
 
 ![Compact mobile result with the larger cover](images/compact-result-mobile.jpg)
 
+### Compact home page using the same composition principles
+
+The home now shares the result page's 1120px maximum width and compact 68px
+masthead. Its orange heading, white speech bubbles, halftone panels, skewed ink
+frames, collage background and original character illustrations remain.
+
+- The search panel and character column use a 1.35:1 split, giving more width to
+  the artwork. Desktop illustration stages grow from 150px to at least 180px.
+- The date field and search action share a row above 900px. Both controls are
+  52px high; narrower layouts stack them with a 10px gap. Coverage and validation
+  feedback stay next to the form.
+- A shorter EN/PT introduction retains the recorded-cover-date-on-or-before rule.
+  The existing native disclosure still explains cover date versus circulation.
+  Smaller heading margins, padding and separators bring the form higher on screen.
+- Up to 700px, search remains first and the character panels sit side by side.
+  At 380px and below, each character panel becomes a horizontal speech/art row,
+  preserving readable dialogue without the previous tall stacked cards.
+- No JavaScript, historical records, matching rules or dependencies changed.
+
+Before/after Chromium checks used local fonts, reduced motion, the same One Piece
+pair and sample date. Default closed-disclosure measurements in PT-BR:
+
+| Viewport | Before: document height | After: document height | Search button bottom before → after |
+| --- | ---: | ---: | ---: |
+| 1024 × 768 | 847px | 768px | 614px → 486px |
+| 390 × 844 | 1039px | 954px | 543px → 477px |
+| 320 × 844 | 1377px | 1037px | 603px → 495px |
+
+At 1024×768 the default page, both character panels and footer fit without page
+scrolling in both languages. Mobile retains normal scrolling; the full text and
+art are not clipped to force a fixed-height page. Expanded explanations, errors,
+larger text and different character dialogues can require additional height.
+
+Validation: all 9 automated tests and 46 browser scenarios passed. EN/PT visual
+and geometry checks covered 320, 390, 768, 1024 and 1440px. Controls remained at
+least 44px high, search stayed above the fold, disclosure expansion worked, and
+there was no horizontal overflow. Forty additional dialogue-layout checks (all
+ten pairs, both languages, at 320 and 1024px) confirmed text stays within its
+speech bubble and panel. The 16 existing home/result viewport checks also passed.
+Desktop, mobile and narrow-screen captures were reviewed; the earlier physical
+device/browser limitations still apply. Updated home captures appear above.
+
 The implementation remains on the working feature branch; no deployment was made.
