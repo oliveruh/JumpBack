@@ -7,7 +7,7 @@
 **Travel back in time and discover the _Weekly Shonen Jump_ issue with the closest recorded cover date on or before your birthday!**
 
 <p align="center">
-  <img src="https://jumpback.veramonte.org/assets/images/logo.png" alt="JumpBack Cover Preview"/>
+  <img src="https://jumpback.veramonte.org/assets/images/logo.webp" alt="JumpBack Cover Preview"/>
 </p>
  
 ## About the Project 
@@ -26,9 +26,9 @@ Whether you’re a lifelong fan of the magazine or just manga-curious, it’s a 
 
 ## New Features
 
-- [x] **Magazine Reveal**: A cover-first result card with up to three identified series from the recorded contents, without a popularity ranking
-- [x] **Statistics and Trivia**: Category counts and existing archive trivia, loaded on demand
-- [x] **WSJ Horoscope**: A playful character/sign association using the existing localized dataset
+- [x] **Magazine Reveal**: A comic-style cover presentation, highlighted birthday and a complete contents list with series names and chapter details
+- [x] **Editor’s Notes**: Rotate through localized trivia from the saved archive
+- [x] **WSJ Horoscope**: A character/sign profile, open by default, using the existing localized dataset
 - [x] **Hidden Gem**: The identified series with the fewest positive MangaUpdates votes in the saved data, with rating as a tie-breaker
 - [x] **Sharing**: Native share, clipboard and manual-copy fallbacks, in English and Brazilian Portuguese
 
@@ -49,6 +49,21 @@ npm run test:smoke
 Historical source JSON files are preserved. After an intentional data update, run
 `npm run catalog` to regenerate the committed compact index/year files. Use
 `npm run measure` for a reproducible local dataset-loading benchmark.
+
+### Images
+
+Deployed images (`bg.webp`, `logo.webp`, `mascots/*.webp`, `og_thumb.jpg`) are
+generated artifacts. Their high-resolution originals live in `assets-src/images/`,
+which is outside `src/` and therefore never uploaded. After changing any artwork,
+run:
+
+```bash
+npm run optimize:images
+```
+
+And keep the references in sync: the four HTML entrypoints (`logo.webp`,
+`og_thumb.jpg`), `src/data/wsj_mascots.json` and `src/br/data/wsj_mascots.json`
+(`mascots/*.webp`). The command prints a before/after size table.
  
 ## Website 
  

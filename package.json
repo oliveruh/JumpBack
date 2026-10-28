@@ -5,11 +5,13 @@
   "scripts": {
     "catalog": "node tools/build-catalog.mjs",
     "catalog:check": "node tools/build-catalog.mjs --check",
+    "optimize:images": "node tools/optimize-images.mjs",
     "test": "node --test tests/*.test.mjs",
     "test:smoke": "node tests/smoke.cjs",
     "measure": "node tools/measure-catalog.mjs"
   },
   "devDependencies": {
-    "playwright": "1.51.1"
+    "playwright": "1.51.1",
+    "sharp": "^0.35.5"
   }
 }

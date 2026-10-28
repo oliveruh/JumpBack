@@ -36,3 +36,7 @@ export async function loadHoroscope(br) {
     const url = br ? new URL('../../br/data/wsj_horoscope.json', import.meta.url) : new URL('wsj_horoscope.json', root);
     return fetchJSON(url);
 }
+export async function loadTrivia(br) {
+    const url = br ? new URL('../../br/data/wsj_trivia.json', import.meta.url) : new URL('wsj_trivia.json', root);
+    return fetchJSON(url);
+}

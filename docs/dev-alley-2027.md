@@ -357,4 +357,79 @@ remain as documented above.
 
 ![Compact mobile result with the larger cover](images/compact-result-mobile.jpg)
 
+### Reused Hidden Gem and horoscope presentation
+
+The shared results renderer now reuses additional presentation details from the
+original Portuguese application in both languages:
+
+- Hidden Gem shows the saved MangaUpdates cover and genre labels alongside its
+  title. The existing selection rule, explanation, description and link remain.
+  Genre labels retain their source language (`lang="en"`).
+- The horoscope shows the saved character image, conventional sign, element and
+  color alongside its existing character, archetype, description and power.
+- Optional images are created only when the relevant tab opens, load lazily and
+  use a no-referrer policy. Missing or failed images display a short localized
+  text fallback without blocking the result, tab contents or sharing.
+- Compact artwork uses the existing paper, ink outlines, comic headings and
+  offset shadows, adapting from 90px on desktop to 72px on mobile.
+
+Validation: `npm test`, `npm run catalog:check` and all 46 existing browser
+scenarios passed. Thirteen additional temporary browser checks covered success
+and failure in both locales at 320, 390 and 1440px, plus missing optional image
+and genre data. Two live PT-BR capture checks at 390 and 1440px also passed,
+without horizontal overflow or uncaught errors. The Rising Impact source image
+loaded; the saved Seto Kaiba image was unavailable in this environment and
+displayed the local fallback. Screenshots are in ignored `test-artifacts/extras/`.
+
 The implementation remains on the working feature branch; no deployment was made.
+
+### Date input follows the page language
+
+The birthday field now uses an explicitly labeled text format: `DD/MM/AAAA` on
+PT-BR and `MM/DD/YYYY` on EN. The page language determines the order even when
+the browser locale differs. Eight-digit numeric entry is normalized with slashes;
+short day/month components are padded on blur. Calendar validation, archive bounds,
+ISO result URLs and existing long-date formatting are preserved.
+
+Validation: `npm test`, `npm run catalog:check` and all 48 browser scenarios passed.
+The two additional scenarios exercise the opposite browser locale, invalid dates,
+compact entry, exact long-date output, language switching and return-to-form values.
+Three visual concept boards for the event were generated separately; the broader
+visual polish is awaiting selection of a board before implementation.
+
+### Selected event composition — proposal 3
+
+The owner selected proposal 3. Its implementation uses a shared sheet up to
+1600px wide, matching mastheads, a left-aligned ink-outlined comic headline,
+larger explicit-format date entry, yellow date highlights, the original artwork
+and a compact issue information column containing the exploration tabs and
+actions. Portuguese Hidden Gem is labeled “Joia escondida”. A small transparent
+ink accent is the only newly generated raster; see
+[asset provenance](event-asset-provenance.md).
+
+The existing source covers, character rotation, recorded contents, date matching,
+localized input formats and long-date output remain active. Error rendering moves
+the result toolbar outside the hidden article so return navigation is available.
+Mobile keeps the fixed action bar with focus-aware scroll spacing.
+
+Validation: `npm test`, `npm run catalog:check` and all 48 browser scenarios passed.
+The final visual checks also passed 28 viewport/page/language combinations with
+real source imagery, plus eight combinations modeling 125% and 200% CSS viewport
+and density. Both default pages fit 1920×1080 in both languages; smaller viewports,
+expanded contents and longer extras retain normal vertical scrolling. No
+horizontal overflow or uncaught page errors occurred. Physical monitor, browser
+zoom UI, Safari/Firefox and screen-reader checks were not performed.
+
+The selected source and comparison history are recorded in
+[the passing design QA report](../design-qa.md). The local preview serves `src`
+on port 4173. No deployment was performed.
+
+
+## Visual polish — 27 October 2026
+
+The current release uses a full contents list, an initially open horoscope and
+a hidden-gem selector. Earlier descriptions of tabs, collapsed contents and
+fixed mobile actions in this audit are historical. The cover now shares the
+opening spread with the issue metadata and index; extras continue below it.
+See [the current visual QA](visual-polish-2026-10-27.md) for screenshots,
+viewport measurements and the checks performed before integration into master.

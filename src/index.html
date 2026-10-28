@@ -9,39 +9,45 @@
  <link rel="canonical" href="https://jumpback.veramonte.org/">
  <meta property="og:title" content="JumpBack">
  <meta property="og:description" content="Discover your place in manga history.">
- <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+ <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.jpg">
  <meta property="og:type" content="website">
  <meta property="og:locale" content="en_US">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+ <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.jpg">
  <meta name="theme-color" content="#F9622F">
  <link rel="icon" href="assets/favicon/favicon.ico">
  <link rel="preload" href="assets/fonts/bangers-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="css/style.css">
  <link rel="stylesheet" href="css/reveal.css">
+ <link rel="stylesheet" href="css/home.css">
  <script type="module" src="scripts/index.js"></script>
 </head>
 <body class="index-page reveal-edition">
 <a class="skip-link" href="#inputPanel">Skip to search</a>
 <div class="manga-page"><header class="header-panel panel masthead">
-  <div class="brand-lockup"><a href="index.html" id="homeLink" aria-label="JumpBack home"><img class="logo" src="assets/images/logo.png" alt="JumpBack" width="250" height="120"></a><p class="brand-caption">A little time travel. A lot of manga.</p></div>
+  <div class="brand-lockup"><a href="index.html" id="homeLink" aria-label="JumpBack home"><img class="logo" src="assets/images/logo.webp" alt="JumpBack" width="250" height="120"></a><p class="brand-caption">A little time travel. A lot of manga.</p></div>
   <nav class="language-nav" aria-label="Language"><span class="current-language" aria-current="true">EN</span><a id="languageLink" href="br/index.html" lang="pt-BR">PT-BR</a></nav>
  </header>
 <main id="inputPanel" class="input-panel panel">
- <p class="eyebrow">WEEKLY SHONEN JUMP × YOUR STORY</p>
- <h1>Discover your birth<br>Jump!</h1>
- <p class="hero-intro speech-bubble">Enter your birthday to discover the <strong>Weekly Shonen Jump</strong> issue with the closest recorded cover date on or before it.</p>
+ <div class="hero-copy">
+  <p class="eyebrow">YOUR VERY FIRST CHAPTER</p>
+  <h1><span class="headline-opening">Discover the</span> <span class="jump-wordmark">Shonen Jump</span> <span class="headline-ending">from the day you were born.</span></h1>
+  <p class="hero-intro">Travel back in time and find your issue in manga history.</p>
+ </div>
  <form id="dateForm" novalidate>
-  <label for="birthdatePicker">Your birth date</label>
-  <div class="date-action-row"><input id="birthdatePicker" class="date-picker" type="date" required aria-describedby="coverage errorMessage"><button id="findButton" class="manga-button" type="submit" disabled>Find My Jump!</button></div>
-  <p id="coverage">Checking archive coverage…</p>
+  <div class="date-label-row"><label for="birthdatePicker">When did your story begin?</label><p id="dateFormatHelp" class="date-format-help">MM/DD/YYYY</p></div>
+  <div class="date-action-row">
+   <div class="date-field"><svg class="date-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 11h18m-13 4h3m2 0h3m-8 3h3"/></svg><input id="birthdatePicker" class="date-picker" type="text" name="birthdate" inputmode="numeric" autocomplete="off" spellcheck="false" maxlength="10" placeholder="MM/DD/YYYY" required aria-describedby="dateFormatHelp coverage errorMessage"></div>
+   <button id="findButton" class="manga-button" type="submit" disabled><span>Find My Jump!</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+  </div>
+  <p class="keyboard-hint">Your journey starts with <kbd>Enter ↵</kbd></p>
   <p id="errorMessage" class="error-message" role="alert" hidden></p>
   <p id="formStatus" role="status" aria-live="polite"></p>
  </form>
- <details class="how-it-works"><summary>How do we find your issue?</summary><p class="archive-note">We match the latest recorded cover date on or before your date. Cover dates may differ from actual sale dates.</p></details>
+ <div class="archive-meta"><p id="coverage">Checking archive coverage…</p><details class="how-it-works"><summary>How do we find your issue?</summary><p class="archive-note">We match the latest recorded cover date on or before your date. Cover dates may differ from actual sale dates.</p></details></div>
 </main>
 <aside class="mascot-panels-wrapper" aria-label="Jump characters">
- <div class="mascot-panel panel"><p class="speech-bubble" id="mascot1SpeechBubble">Ready to find your Jump?</p><div class="mascot" id="mascot1Image" role="img" aria-label="Jump character"></div></div>
-<div class="mascot-panel-2 panel"><p class="speech-bubble" id="mascot2SpeechBubble">Ready to find your Jump?</p><div class="mascot2" id="mascot2Image" role="img" aria-label="Jump character"></div></div>
+ <div class="mascot-panel panel"><div class="comic-panel-meta"><span class="mascot-series">WEEKLY SHONEN JUMP</span><span class="panel-number" aria-hidden="true">01</span></div><span class="comic-effect" aria-hidden="true">JUMP!</span><p class="speech-bubble" id="mascot1SpeechBubble">Ready to find your Jump?</p><div class="mascot" id="mascot1Image" role="img" aria-label="Jump character"></div><p class="mascot-caption" id="mascot1Name" hidden></p></div>
+ <div class="mascot-panel-2 panel"><div class="comic-panel-meta"><span class="mascot-series">WEEKLY SHONEN JUMP</span><span class="panel-number" aria-hidden="true">02</span></div><span class="comic-effect" aria-hidden="true">!!</span><p class="speech-bubble" id="mascot2SpeechBubble">Ready to find your Jump?</p><div class="mascot2" id="mascot2Image" role="img" aria-label="Jump character"></div><p class="mascot-caption" id="mascot2Name" hidden></p></div>
 </aside></div><noscript><p class="panel">Enable JavaScript to search this static archive.</p></noscript><footer class="site-footer-info"><p>Made by <a href="https://github.com/oliveruh" target="_blank" rel="noopener noreferrer">oliveruh</a></p>
  <a class="tip-button manga-button" href="https://www.paypal.com/donate/?hosted_button_id=Z74ZYG2XLA4KQ" target="_blank" rel="noopener noreferrer">Tip me</a></footer></body></html>

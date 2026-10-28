@@ -9,25 +9,27 @@
  <link rel="canonical" href="https://jumpback.veramonte.org/br/results.html">
  <meta property="og:title" content="JumpBack">
  <meta property="og:description" content="Descubra seu lugar na história dos mangás.">
- <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+ <meta property="og:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.jpg">
  <meta property="og:type" content="website">
  <meta property="og:locale" content="pt_BR">
  <meta name="twitter:card" content="summary_large_image">
- <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.png">
+ <meta name="twitter:image" content="https://jumpback.veramonte.org/assets/images/og_thumb.jpg">
  <meta name="theme-color" content="#F9622F">
  <link rel="icon" href="../assets/favicon/favicon.ico">
- <link rel="preload" href="../assets/fonts/bangers-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+ <link rel="preconnect" href="https://comicvine.gamespot.com" crossorigin>
+<link rel="preload" href="../assets/fonts/bangers-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
  <link rel="stylesheet" href="../css/style.css">
  <link rel="stylesheet" href="../css/reveal.css">
+ <link rel="stylesheet" href="../css/results.css">
  <script type="module" src="scripts/results.js"></script>
 </head>
 <body class="results-page reveal-edition">
-<a class="skip-link" href="#resultCard">Ir para o resultado</a>
+<a class="skip-link" href="#resultsMain">Ir para o resultado</a>
 <div class="manga-page"><header class="header-panel panel masthead">
-  <div class="brand-lockup"><a href="index.html" id="homeLink" aria-label="Início do JumpBack"><img class="logo" src="../assets/images/logo.png" alt="JumpBack" width="250" height="120"></a><p class="brand-caption">Uma viagem no tempo. Um mundo de mangás.</p></div>
+  <div class="brand-lockup"><a href="index.html" id="homeLink" aria-label="Início do JumpBack"><img class="logo" src="../assets/images/logo.webp" alt="JumpBack" width="250" height="120"></a><p class="brand-caption">Uma viagem no tempo. Um mundo de mangás.</p></div>
   <nav class="language-nav" aria-label="Idioma"><span class="current-language" aria-current="true">PT-BR</span><a id="languageLink" href="../index.html" lang="en">EN</a></nav>
  </header>
-<main class="reveal-main" id="resultsMain" aria-busy="true">
+<main class="reveal-main" id="resultsMain" aria-busy="true" tabindex="-1">
  <p id="resultStatus" class="result-status" role="status" aria-live="polite">Encontrando sua Jump…</p>
  <section id="errorPanel" class="panel error-panel" aria-labelledby="errorTitle" hidden>
   <h1 id="errorTitle">Vamos tentar outra página</h1>
@@ -35,53 +37,61 @@
   <button id="retryButton" class="manga-button" type="button">Tentar novamente</button>
  </section>
  <article id="resultCard" class="result-card panel" hidden aria-labelledby="resultTitle">
+  <div class="reveal-copy">
+   <h1 id="resultTitle"><span class="result-title-lead">O seu primeiro capítulo.</span> <span class="result-wordmark">Shonen Jump</span></h1>
+   <p class="issue-stamp"><span>Nº no acervo</span><strong id="issueNumber"></strong></p>
+   <dl class="date-facts"><div class="birthday-fact"><dt id="selectedDateLabel">Sua data de nascimento</dt><dd id="selectedDate"></dd></div><div id="coverDateFact"><dt>Data de capa</dt><dd id="coverDate" class="reveal-date"></dd></div></dl>
+   <div class="date-info">
+    <button id="dateInfoButton" class="date-info-button" type="button" aria-expanded="false" aria-controls="dateInfo"><span class="date-info-mark" aria-hidden="true">i</span>Como escolhemos esta edição</button>
+    <span id="dateInfo" class="date-info-tip" hidden>Usamos a data de capa registrada mais próxima até seu nascimento. Ela pode diferir da circulação real. O número identifica a edição no nosso acervo.</span>
+   </div>
+  </div>
   <figure class="cover-stage">
+   <span id="coverSpine" class="cover-spine" aria-hidden="true"></span>
    <img id="magazineCover" class="magazine-cover" alt="" width="420" height="600" decoding="async" fetchpriority="high" hidden>
    <div id="coverPlaceholder" class="cover-placeholder" role="status">Abrindo a capa…</div>
    <figcaption id="coverStatus" role="status"></figcaption>
    <button id="retryCoverButton" type="button" hidden>Tentar carregar a capa</button>
   </figure>
-  <div class="result-details">
-  <div class="reveal-copy">
-   <p class="eyebrow">SUA JUMP DE NASCIMENTO</p>
-   <h1 id="resultTitle">Weekly Shonen Jump</h1>
-   <p class="issue-stamp">Edição no acervo <strong id="issueNumber"></strong></p>
-   <dl class="date-facts"><div><dt>Data de capa registrada</dt><dd id="coverDate" class="reveal-date"></dd></div><div><dt>Sua data</dt><dd id="selectedDate"></dd></div></dl>
-   <p class="archive-note">Data de capa registrada mais próxima até sua data. Ela pode diferir da circulação real.</p>
-   <section class="featured-series" aria-labelledby="featuredTitle">
-    <h2 id="featuredTitle">Nesta edição</h2>
-    <ul id="featuredSeries"></ul>
-    <p class="small-note">Uma seleção do sumário registrado.</p>
-   </section>
-  </div>
  <section id="explorePanel" class="panel explore-panel" aria-labelledby="exploreTitle" hidden>
-  <p class="eyebrow explore-eyebrow">TEM MAIS NESTAS PÁGINAS</p>
-  <h2 id="exploreTitle">Vire a página</h2>
-  <div class="explore-tabs" role="tablist" aria-label="Mais sobre sua Jump">
-   <button id="contentsTabButton" class="explore-tab" role="tab" aria-selected="true" tabindex="0" aria-controls="contentsTabPanel" type="button" data-tab="contents">Sumário</button>
-<button id="statsTabButton" class="explore-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="statsTabPanel" type="button" data-tab="stats">Estatísticas</button>
-<button id="triviaTabButton" class="explore-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="triviaTabPanel" type="button" data-tab="trivia">Curiosidades</button>
-<button id="horoscopeTabButton" class="explore-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="horoscopeTabPanel" type="button" data-tab="horoscope">Horóscopo</button>
-<button id="hiddenGemTabButton" class="explore-tab" role="tab" aria-selected="false" tabindex="-1" aria-controls="hiddenGemTabPanel" type="button" data-tab="hiddenGem">Hidden Gem</button>
-  </div>
-  <section id="contentsTabPanel" class="explore-content" role="tabpanel" tabindex="0" aria-labelledby="contentsTabButton" ></section>
-<section id="statsTabPanel" class="explore-content" role="tabpanel" tabindex="0" aria-labelledby="statsTabButton" hidden></section>
-<section id="triviaTabPanel" class="explore-content" role="tabpanel" tabindex="0" aria-labelledby="triviaTabButton" hidden></section>
-<section id="horoscopeTabPanel" class="explore-content" role="tabpanel" tabindex="0" aria-labelledby="horoscopeTabButton" hidden></section>
-<section id="hiddenGemTabPanel" class="explore-content" role="tabpanel" tabindex="0" aria-labelledby="hiddenGemTabButton" hidden></section>
+  <div class="explore-heading"><h2 id="exploreTitle">Dentro desta edição</h2><p id="contentsCount" class="contents-count"></p></div>
+  <div id="contentsPanel" class="contents-panel"></div>
  </section>
-   <p class="card-signature">JUMPBACK · SEU CAPÍTULO COMEÇA AQUI</p>
-  </div>
- </article>
- <div class="result-toolbar">
+ <section class="extras" aria-labelledby="extrasTitle">
+   <h2 id="extrasTitle" class="extras-title">Aqui está seu horóscopo shonen!</h2>
+   <div class="extras-cards" role="group" aria-label="Alternar conteúdo extra">
+    <button id="horoscopeCard" class="extra-card sign-card is-loading" type="button" aria-expanded="true" aria-controls="horoscopePanel">
+     <span class="extra-card-glyph" id="horoscopeGlyph" aria-hidden="true"></span>
+     <span class="extra-card-name" id="horoscopeName">Cruzando os astros…</span>
+    </button>
+    <button id="hiddenGemCard" class="extra-card gem-card" type="button" aria-expanded="false" aria-controls="hiddenGemPanel">
+     <span class="extra-card-name">Joia escondida</span>
+     <span class="extra-card-cta"><span class="cta-open">Revelar</span><span class="cta-close">Voltar ao horóscopo</span></span>
+    </button>
+   </div>
+   <div id="horoscopePanel" class="extra-panel" aria-labelledby="horoscopeName"></div>
+   <div id="hiddenGemPanel" class="extra-panel" aria-label="Joia escondida" hidden></div>
+  </section>
+   <aside id="editorNote" class="editor-note" aria-labelledby="editorNoteTitle" hidden>
+    <div class="editor-note-head">
+     <p class="editor-note-kicker">Nota da redação <span id="editorNoteIndex" class="editor-note-index"></span></p>
+     <button id="editorNoteNext" class="editor-note-next" type="button" aria-label="Outra nota"><span aria-hidden="true">↻</span><span class="note-next-label">Outra nota</span></button>
+    </div>
+    <div class="editor-note-copy" aria-live="polite" aria-atomic="true">
+     <h2 id="editorNoteTitle" class="editor-note-title"></h2>
+     <p id="editorNoteBody" class="editor-note-body"></p>
+    </div>
+   </aside>
+<div class="result-toolbar">
  <div class="result-actions">
   <a id="backButton" class="manga-button secondary-button" href="index.html">Trocar data</a>
-  <button id="shareButton" class="manga-button" type="button" disabled>Compartilhar minha Jump <span aria-hidden="true">↗</span></button>
+  <button id="shareButton" class="manga-button" type="button" disabled>Compartilhar <span aria-hidden="true">↗</span></button>
  </div>
  <p id="shareStatus" class="share-status" role="status" aria-live="polite"></p>
  <div id="manualShare" hidden><label for="shareURL">Copie este link (ele contém a data escolhida):</label><input id="shareURL" readonly type="url"></div>
- <p class="small-note share-note">Tire um print do cartão ou compartilhe o link com a data escolhida.</p>
+ <p class="small-note share-note">O link inclui a data escolhida.</p>
  </div>
+ </article>
 
 </main></div><noscript><p class="panel">Ative o JavaScript para pesquisar neste acervo estático.</p></noscript><footer class="site-footer-info"><p>Feito por <a href="https://github.com/oliveruh" target="_blank" rel="noopener noreferrer">oliveruh</a></p>
  <a class="tip-button manga-button" href="https://www.paypal.com/donate/?hosted_button_id=Z74ZYG2XLA4KQ" target="_blank" rel="noopener noreferrer">Apoie o projeto</a></footer></body></html>

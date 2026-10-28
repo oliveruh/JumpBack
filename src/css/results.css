@@ -1,0 +1,624 @@
+/* Results: an opening spread for the cover and index, then a shonen profile. */
+:root {
+  /* Printed-shop palette, tokenised so every surface, rule and plate is one decision. */
+  --rp-paper: #fff9ed;
+  --rp-band: #fdf1d6;
+  --rp-paper-warm: #f5e7c6;
+  --rp-desk: #ede5d5;
+  --rp-cover-desk: #efd084;
+  --rp-date: #f8e5b8;
+  --rp-date-strong: #ffe66f;
+  --rp-rule: #dbc9a6;
+  --rp-rule-soft: #e7dcc4;
+  --rp-ink: #25231f;
+  --rp-ink-soft: #25231f33;
+  --rp-ink-faint: #25231f1c;
+  --rp-muted: #5c4c38;
+  --rp-muted-soft: #6a5944;
+  --rp-rust: #8f3519;
+  --rp-rust-bright: #bd3e15;
+  --rp-bronze: #73502b;
+  --rp-gold-plate: #b8874a;
+  --rp-paper-plate: #c1a77e;
+  --rp-focus: #146a9e;
+  --rp-cover-dot: #9b6e3440;
+  --rp-cover-ray: #fff8dc88;
+  --rp-cover-ray-dark: #704b2012;
+  --rp-cover-shadow: #704b2055;
+  --rp-cover-spine: #443724;
+  --rp-cover-paper: #634829;
+  --rp-cover-dash: #8a643b;
+  --rp-masthead: #f46436;
+  --rp-wordmark: #f45c2e;
+  --rp-share: #f76c38;
+  --rp-share-hover: #ff8852;
+  --rp-share-highlight: #ffc88a;
+  --rp-masthead-glow: #ffb05290;
+  --rp-masthead-hatch: #8f351916;
+  --rp-masthead-shade: #b63d2433;
+  --rp-nav-shadow: #802f2460;
+  /* Named elevation: offset ink plates, never blur. */
+  --lift-xs: 1px 1px 0 var(--rp-ink);
+  --lift-sm: 2px 2px 0 var(--rp-ink);
+  --lift-md: 3px 3px 0 var(--rp-ink);
+  --lift-lg: 5px 5px 0 var(--rp-ink);
+  --lift-page: 8px 8px 0 var(--rp-ink-soft);
+  --lift-none: none;
+  --lift-paper: 3px 3px 0 var(--rp-paper-plate);
+  --lift-gold: 3px 3px 0 var(--rp-gold-plate);
+  /* The horoscope uses the same printed-ink system, with an 8px rhythm. */
+  --rp-space-1: 8px;
+  --rp-space-2: 16px;
+  --rp-space-3: 24px;
+  --rp-symbol-size: 24px;
+  --rp-control-height: 48px;
+  --rp-type-small: .875rem;
+  --rp-type-body: 1rem;
+  --rp-type-heading: 2rem;
+  --rp-type-character: 2.5rem;
+}
+
+.results-page { color: var(--rp-ink); }
+
+.results-page.reveal-edition .manga-page {
+  padding: 20px;
+  gap: 22px;
+  background: var(--rp-desk);
+  box-shadow: var(--lift-page);
+}
+
+.results-page .header-panel.masthead {
+  background-color: var(--rp-masthead);
+  background-image: radial-gradient(ellipse at 50% 0, var(--rp-masthead-glow), transparent 65%), repeating-linear-gradient(135deg, var(--rp-masthead-hatch) 0 2px, transparent 2px 8px);
+  background-size: auto;
+  box-shadow: inset 0 -6px 0 var(--rp-masthead-shade), 4px 4px 0 var(--rp-ink);
+}
+
+.results-page .language-nav { box-shadow: 3px 3px 0 var(--rp-nav-shadow); }
+
+/* ── The issue dossier ─────────────────────────────────────────────── */
+/* Keep the cover alongside the issue itself. Extras continue below the spread,
+   so a long horoscope never pushes the cover away from its title. */
+.results-page .result-card.panel {
+  grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+  grid-template-areas:
+   'cover summary'
+   'cover explore'
+   'extras extras'
+   'note note'
+   'actions actions';
+  grid-template-rows: auto 1fr auto auto auto;
+  overflow: visible;
+  background: var(--rp-paper);
+  box-shadow: var(--lift-lg);
+}
+
+.results-page .result-card.panel:hover { box-shadow: var(--lift-lg); }
+
+/* ── Cover stage ───────────────────────────────────────────────────── */
+.results-page .cover-stage {
+  grid-area: cover;
+  isolation: isolate;
+  gap: 0;
+  min-height: 0;
+  padding: 32px 26px 36px 44px;
+  overflow: clip;
+  background-color: var(--rp-cover-desk);
+  background-image: radial-gradient(circle, var(--rp-cover-dot) 1px, transparent 1.5px);
+  background-size: 6px 6px;
+  box-shadow: inset 0 -8px 0 var(--rp-masthead-shade);
+}
+
+.results-page .cover-stage::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  background: var(--rp-cover-dot) repeating-conic-gradient(from 12deg at 50% 46%, transparent 0deg 14deg, var(--rp-cover-ray) 14deg 17deg, transparent 17deg 30deg, var(--rp-cover-ray-dark) 30deg 30.6deg);
+  mask-image: radial-gradient(ellipse, transparent 5%, var(--rp-ink) 100%);
+  pointer-events: none;
+}
+
+.results-page .cover-stage::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(155deg, transparent 0 73%, var(--rp-cover-ray-dark) 73% 73.4%, var(--rp-cover-ray) 73.4%);
+  pointer-events: none;
+}
+
+/* The archive spine: a bound edge, not a border. */
+.results-page .cover-spine {
+  position: absolute;
+  z-index: 1;
+  inset-block: 0;
+  inset-inline-start: 0;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  padding-block: 16px;
+  background: var(--rp-ink);
+  color: var(--rp-paper);
+  font: 700 .625rem/1 var(--font-body);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+}
+
+.results-page .cover-stage .magazine-cover {
+  position: static;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: min(100% - 16px, 430px);
+  height: auto;
+  max-height: min(66vh, 640px);
+  margin: auto;
+  border: 3px solid var(--rp-paper);
+  box-shadow: 10px 12px 0 var(--rp-cover-shadow), 2px 3px 0 2px var(--rp-cover-spine);
+  transform: rotate(-2deg);
+}
+
+.results-page .cover-placeholder { width: min(100%, 400px); min-height: min(52vh, 420px); border: 2px dashed var(--rp-cover-dash); background: var(--rp-paper); color: var(--rp-bronze); }
+.results-page #coverStatus { max-width: 36ch; color: var(--rp-cover-paper); font-size: .9375rem; }
+.results-page #retryCoverButton { background: var(--rp-paper); box-shadow: var(--lift-gold); }
+
+.results-page #retryCoverButton:hover { background: var(--rp-date-strong); box-shadow: var(--lift-xs); }
+.results-page #retryCoverButton:active { box-shadow: var(--lift-none); }
+.results-page #retryCoverButton:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 3px; }
+
+/* ── Summary column ────────────────────────────────────────────────── */
+.results-page .reveal-copy {
+  grid-area: summary;
+  position: relative;
+  z-index: 2;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-content: start;
+  gap: 0 18px;
+  padding: 24px 26px 12px;
+}
+
+.results-page .reveal-copy h1 { grid-row: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin: 0; color: var(--rp-ink); font-size: clamp(2.125rem, 3.2vw, 3.5rem); line-height: 1.04; text-shadow: none; }
+.results-page .result-title-lead { font-size: max(.44em, 1rem); letter-spacing: .03em; }
+.results-page .result-wordmark { position: relative; isolation: isolate; display: inline-block; padding: 0 5px 4px; color: var(--rp-wordmark); white-space: nowrap; -webkit-text-stroke: 1px var(--rp-ink); paint-order: stroke fill; text-shadow: 2px 3px 0 var(--rp-ink); }
+.results-page .result-wordmark::before { content: ''; position: absolute; z-index: -1; inset: -3px -5px -2px; background: var(--rp-date-strong); border: 2px solid var(--rp-ink); box-shadow: var(--lift-md); transform: rotate(-2deg) skewX(-4deg); }
+
+.results-page .issue-stamp { grid-row: 1; align-self: center; gap: 3px; margin: 0; padding: 6px 9px; background: var(--rp-date); border: 2px solid var(--rp-ink); box-shadow: var(--lift-gold); font-size: .5625rem; font-weight: 500; transform: rotate(2.5deg); }
+.results-page .issue-stamp strong { font-size: clamp(1.75rem, 2.1vw, 2.25rem); line-height: 1; font-variant-numeric: tabular-nums; }
+
+.results-page .date-facts { grid-row: 2; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: start; gap: 18px; margin: 20px 0 0; }
+.results-page .date-facts.same-date { grid-template-columns: 1fr; }
+.results-page .date-facts dt { margin-bottom: 4px; font-size: .75rem; line-height: 1.4; color: var(--rp-muted-soft); }
+.results-page .date-facts dd { padding: 2px 5px; background: var(--rp-date); font-size: clamp(1rem, 1.15vw, 1.25rem); line-height: 1.45; font-variant-numeric: tabular-nums; }
+.results-page .date-facts .birthday-fact dd { background: var(--rp-date-strong); }
+.results-page #coverDateFact { padding-left: 18px; border-left: 1px solid var(--rp-rule); }
+.results-page #coverDate { padding: 0; background: transparent; font-size: clamp(.9375rem, 1.05vw, 1.0625rem); font-weight: 500; }
+
+/* The date explanation: a discreet footnote tooltip instead of a block. */
+.results-page .date-info { grid-row: 3; position: relative; margin-top: 4px; }
+
+.results-page .date-info-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 2px 0;
+  border: 0;
+  background: none;
+  color: var(--rp-muted-soft);
+  font: 500 .75rem/1.4 var(--font-body);
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  transition: color 140ms ease;
+}
+
+.results-page .date-info-button:hover { color: var(--rp-rust); }
+.results-page .date-info-button:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 4px; }
+.results-page .date-info-mark { display: grid; place-items: center; width: 15px; height: 15px; border: 1.5px solid currentColor; border-radius: 50%; font: 700 .5625rem/1 var(--font-body); text-decoration: none; }
+
+.results-page .date-info-tip {
+  position: absolute;
+  z-index: 6;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  width: min(40ch, calc(100vw - 72px));
+  padding: 11px 13px;
+  border: 2px solid var(--rp-ink);
+  background: var(--rp-paper);
+  box-shadow: var(--lift-sm);
+  color: var(--rp-ink);
+  font: 400 .8125rem/1.55 var(--font-body);
+}
+
+/* A speech-bubble tail: the note points back at its marker. */
+.results-page .date-info-tip::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  inset-inline-start: 15px;
+  width: 11px;
+  height: 11px;
+  transform: rotate(45deg);
+  background: var(--rp-paper);
+  border-inline-start: 2px solid var(--rp-ink);
+  border-block-start: 2px solid var(--rp-ink);
+}
+
+/* The editor’s note: a quiet footnote at the foot of the sheet — kicker and
+   title share one line so it reads as a caption, not a section. */
+.results-page .editor-note {
+  grid-area: note;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 1px 10px;
+  margin: 0;
+  padding: 16px 26px 0;
+  border: 0;
+  border-top: 1px solid var(--rp-rule);
+  background: none;
+  box-shadow: var(--lift-none);
+}
+
+.results-page .editor-note-head, .results-page .editor-note-copy { display: contents; }
+.results-page .editor-note-kicker { grid-area: 1 / 1; margin: 0; color: var(--rp-muted-soft); font: 700 .625rem/1.5 var(--font-body); letter-spacing: .06em; text-transform: uppercase; }
+.results-page .editor-note-index { margin-inline-start: 5px; color: var(--rp-muted-soft); font-variant-numeric: tabular-nums; }
+.results-page .editor-note-title { grid-area: 1 / 2; margin: 0; font: 600 .8125rem/1.4 var(--font-body); color: var(--rp-ink); }
+.results-page .editor-note-body { grid-area: 2 / 1 / 3 / -1; margin: 0; max-width: 92ch; font: 400 .78125rem/1.5 var(--font-body); color: var(--rp-muted); }
+
+.results-page .editor-note-next {
+  grid-area: 1 / 3;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 44px;
+  min-height: 44px;
+  justify-content: center;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 2px;
+  background: none;
+  color: var(--rp-rust);
+  font: 600 .6875rem/1.3 var(--font-body);
+  cursor: pointer;
+  transition: color 140ms ease;
+}
+
+.results-page .editor-note-next:hover { color: var(--rp-rust-bright); text-decoration: underline; text-underline-offset: 3px; }
+.results-page .editor-note-next:active { color: var(--rp-ink); }
+.results-page .editor-note-next:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 3px; }
+.results-page .note-next-label { white-space: nowrap; }
+
+.results-page .editor-note.is-turning .editor-note-title,
+.results-page .editor-note.is-turning .editor-note-body { animation: note-turn 240ms ease-out both; }
+
+@keyframes note-turn {
+  from { opacity: .2; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ── Contents: the prominent index of the issue ───────────────────── */
+.results-page .explore-panel.panel,
+.results-page .explore-panel.panel:hover {
+  grid-area: explore;
+  display: block;
+  align-self: stretch;
+  container-type: inline-size;
+  container-name: issue-index;
+  margin: 0;
+  padding: 18px 26px 24px;
+  border: 0;
+  border-top: 2px solid var(--rp-ink);
+  border-radius: 0;
+  background: var(--rp-band);
+  box-shadow: var(--lift-none);
+  transform: none;
+}
+
+.results-page .explore-heading { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 14px; margin: 0 0 12px; }
+.results-page .explore-heading h2 { margin: 0; font: 400 clamp(1.375rem, 1.55vw, 1.6875rem)/1.1 var(--font-heading-comic); letter-spacing: .02em; color: var(--rp-rust-bright); }
+.results-page .contents-count { margin: 0; color: var(--rp-muted-soft); font-size: .6875rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* A printed index in balanced columns: reading order runs down each column. */
+.results-page .contents-list {
+  counter-reset: contents;
+  column-count: 2;
+  column-gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.results-page .contents-list li {
+  counter-increment: contents;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--rp-rule);
+  break-inside: avoid;
+}
+
+.results-page .contents-list li::before {
+  content: counter(contents, decimal-leading-zero);
+  color: var(--rp-muted-soft);
+  font: 500 .625rem/1.6 var(--font-body);
+  font-variant-numeric: tabular-nums;
+}
+
+.results-page .contents-entry { display: grid; grid-template-columns: minmax(0, max-content) minmax(14px, 1fr) max-content; align-items: baseline; gap: 3px 8px; min-width: 0; }
+/* Dotted leader: the index technique of a printed table of contents. */
+.results-page .contents-entry::before {
+  content: '';
+  grid-area: 1 / 2;
+  align-self: end;
+  height: 0;
+  margin-bottom: .38em;
+  border-bottom: 1px dotted var(--rp-rule);
+}
+.results-page .contents-series { grid-area: 1 / 1; font-size: .875rem; font-weight: 700; line-height: 1.5; color: var(--rp-ink); overflow-wrap: break-word; }
+.results-page .contents-chapter { grid-area: 1 / 3; min-width: 0; color: var(--rp-muted-soft); font-size: .8125rem; line-height: 1.5; font-variant-numeric: tabular-nums; text-align: end; overflow-wrap: anywhere; }
+
+/* A third index column once the band itself is wide enough to give each row
+   a real measure — the same printed rhythm at every desktop size. */
+@container issue-index (min-width: 860px) {
+  .results-page .contents-list { column-count: 3; column-gap: 26px; }
+  .results-page .contents-list li { grid-template-columns: 18px minmax(0, 1fr); gap: 8px; }
+}
+
+/* ── Horoscope first: a persistent reading panel with a compact switch ── */
+.results-page .extras { grid-area: extras; align-self: stretch; margin: 0; padding: var(--rp-space-3) 26px 0; border-top: 2px solid var(--rp-ink); }
+.results-page .extras-title { margin: 0 0 var(--rp-space-2); color: var(--rp-ink); font: 400 var(--rp-type-heading)/1.15 var(--font-heading-comic); text-wrap: balance; }
+.results-page .extras-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--rp-space-1); border-bottom: 2px solid var(--rp-ink); }
+
+.results-page .extra-card {
+  display: flex;
+  align-items: center;
+  gap: var(--rp-space-1);
+  min-width: 0;
+  min-height: var(--rp-control-height);
+  padding: var(--rp-space-1) var(--rp-space-2);
+  text-align: start;
+  border: 2px solid var(--rp-ink);
+  border-bottom: 0;
+  border-radius: 2px 2px 0 0;
+  background: var(--rp-band);
+  box-shadow: var(--lift-none);
+  color: var(--rp-ink);
+  cursor: pointer;
+  transition: background-color 140ms ease;
+}
+
+.results-page .extra-card:hover { background: var(--rp-date); }
+.results-page .extra-card:active { background: var(--rp-date-strong); }
+.results-page .extra-card:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 4px; }
+.results-page .extra-card[aria-expanded='true'] { background: var(--rp-date-strong); }
+.results-page .extra-card:disabled { background: var(--rp-band); color: var(--rp-muted); }
+.results-page .extra-card-glyph { display: inline-flex; flex: 0 0 var(--rp-symbol-size); width: var(--rp-symbol-size); height: var(--rp-symbol-size); }
+.results-page .extra-card-glyph:empty { display: none; }
+.results-page .extra-card-name { min-width: 0; color: inherit; font: 700 var(--rp-type-small)/1.4 var(--font-body); }
+.results-page .gem-card { flex-wrap: wrap; justify-content: space-between; }
+.results-page .extra-card-cta { color: var(--rp-rust); font: 700 .75rem/1.4 var(--font-body); }
+.results-page .extra-card[aria-expanded='true'] .extra-card-cta { color: var(--rp-ink); }
+.results-page .extra-card .cta-close { display: none; }
+.results-page .extra-card[aria-expanded='true'] .cta-open { display: none; }
+.results-page .extra-card[aria-expanded='true'] .cta-close { display: inline; }
+.results-page .extra-card.is-loading .extra-card-name { color: var(--rp-muted); }
+.results-page .extra-card.is-unavailable .extra-card-name { text-decoration: underline dotted; text-underline-offset: 4px; }
+
+/* ── Extra panels ──────────────────────────────────────────────────── */
+.results-page .extra-panel {
+  position: relative;
+  margin: 0;
+  padding: var(--rp-space-2) 0;
+  border: 0;
+  background: var(--rp-paper);
+  box-shadow: var(--lift-none);
+}
+
+.results-page .extra-panel:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 4px; }
+.results-page .extra-panel[aria-busy='true'] { min-height: 96px; }
+.results-page .extra-panel > .small-note { color: var(--rp-muted-soft); }
+.results-page .extra-feature { gap: 18px; margin: 0 0 16px; }
+
+.results-page .extra-artwork { position: relative; flex-basis: 110px; width: 110px; background: var(--rp-paper-warm); border-color: var(--rp-ink); box-shadow: 4px 4px 0 var(--rp-paper-plate); }
+.results-page .artwork-fallback { position: absolute; inset: 0; background: var(--rp-paper-warm); color: var(--rp-ink); font-size: .75rem; }
+.results-page .character-artwork { flex-basis: 104px; width: 104px; padding: 5px; background: var(--rp-paper); border-color: var(--horoscope-color, var(--rp-ink)); }
+.results-page .character-artwork img { object-fit: contain; }
+
+.results-page .extra-feature-copy h3 { margin: 0 0 8px; color: var(--rp-rust-bright); font: 400 2rem/1.12 var(--font-heading-comic); }
+.results-page .extra-feature-copy .extra-byline { margin-bottom: 6px; font-size: .9375rem; font-weight: 500; }
+.results-page .extra-feature-copy .horoscope-archetype { margin-bottom: 0; font-size: .875rem; }
+.results-page .extra-feature-copy .horoscope-character { margin: var(--rp-space-1) 0; color: var(--rp-ink); font: 400 var(--rp-type-character)/1.1 var(--font-heading-comic); overflow-wrap: anywhere; }
+.results-page .extra-feature-copy .horoscope-subtitle { margin: 0 0 var(--rp-space-1); color: var(--rp-ink); font: 700 var(--rp-type-body)/1.4 var(--font-body); }
+.results-page .sign-badge { display: flex; align-items: center; gap: var(--rp-space-1); margin: 0; color: var(--rp-muted); font: 700 var(--rp-type-small)/1.4 var(--font-body); }
+.results-page .sign-glyph { display: inline-flex; flex: 0 0 var(--rp-symbol-size); width: var(--rp-symbol-size); height: var(--rp-symbol-size); }
+.results-page .sign-glyph svg, .results-page .extra-card-glyph svg { display: block; width: 100%; height: 100%; }
+
+.results-page .sign-description { margin: 0 0 14px; max-width: 62ch; font-size: .9375rem; line-height: 1.6; }
+.results-page .sign-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; margin: 0 0 12px; padding: 12px 0 0; border-top: 1px dashed var(--rp-rule); }
+.results-page .sign-facts dt { color: var(--rp-muted-soft); font: 700 .625rem/1.3 var(--font-body); letter-spacing: .07em; text-transform: uppercase; }
+.results-page .sign-facts dd { margin: 3px 0 0; font: 500 .875rem/1.45 var(--font-body); color: var(--rp-ink); }
+
+.results-page .gem-kicker { margin: 0 0 8px; color: var(--rp-muted-soft); font: 700 .625rem/1.3 var(--font-body); letter-spacing: .07em; text-transform: uppercase; }
+.results-page .gem-score { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: .8125rem; color: var(--rp-muted-soft); }
+.results-page .gem-score-value { display: inline-grid; place-items: center; min-width: 2.75rem; padding: 3px 6px; border: 2px solid var(--rp-ink); background: var(--rp-date-strong); color: var(--rp-ink); font: 400 1.625rem/1 var(--font-heading-comic); font-variant-numeric: tabular-nums; }
+.results-page .gem-votes { color: var(--rp-muted-soft); font-size: .8125rem; }
+.results-page .genre-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; padding: 0; list-style: none; }
+.results-page .genre-list li { margin: 0; background: var(--rp-paper-warm); border-color: var(--rp-rule); font-size: .75rem; }
+
+.results-page .data-note { margin-top: 12px; padding-top: 8px; border-top: 1px dashed var(--rp-rule); font-size: .875rem; }
+.results-page .data-note summary { min-height: 44px; padding: 10px 0; color: var(--rp-rust); font-weight: 500; cursor: pointer; }
+.results-page .data-note summary:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 2px; }
+.results-page .data-note p { margin: 8px 0 14px; font-size: .9375rem; line-height: 1.6; }
+.results-page .source-note { margin-bottom: 12px; color: var(--rp-muted-soft); font-size: .8125rem; font-style: normal; }
+
+/* ── Actions ───────────────────────────────────────────────────────── */
+.results-page .result-toolbar { grid-area: actions; display: flex; flex-direction: column; align-items: stretch; gap: 8px; margin: 0; padding: 16px 26px 24px; }
+.results-page .result-actions { justify-content: stretch; gap: 10px; }
+/* Disabled is a state, not a fade: no plate, no press, muted ink. */
+.results-page button:disabled,
+.results-page .manga-button:disabled,
+.results-page .extra-card:disabled {
+  cursor: not-allowed;
+  box-shadow: var(--lift-none);
+  transform: none;
+}
+.results-page #shareButton:disabled { background: var(--rp-band); color: var(--rp-muted); }
+.results-page #shareButton:disabled:hover { background: var(--rp-band); box-shadow: var(--lift-none); }
+.results-page .result-actions .manga-button { min-height: 44px; padding: 8px 16px; border-radius: 2px; font-size: .875rem; }
+.results-page .result-actions .secondary-button { flex: 0 0 auto; background: var(--rp-paper); box-shadow: var(--lift-paper); }
+.results-page .result-actions .secondary-button:hover { box-shadow: var(--lift-xs); }
+.results-page .result-actions .secondary-button:active { box-shadow: var(--lift-none); }
+.results-page .result-actions .secondary-button:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 3px; }
+.results-page #shareButton { flex: 1; justify-content: space-between; background: var(--rp-share); box-shadow: 3px 3px 0 var(--rp-ink), inset 0 2px 0 var(--rp-share-highlight); }
+.results-page #shareButton:hover { background: var(--rp-share-hover); box-shadow: var(--lift-xs); }
+.results-page #shareButton:active { box-shadow: var(--lift-none); }
+.results-page #shareButton:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 3px; }
+.results-page .share-note { max-width: none; text-align: end; font-size: .75rem; color: var(--rp-muted-soft); }
+.results-page .share-status { font-size: .9375rem; color: var(--rp-ink); }
+.results-page #manualShare { padding: 12px; border: 2px solid var(--rp-rule); background: var(--rp-date); }
+.results-page #shareURL { border: 2px solid var(--rp-rule); background: var(--rp-paper); }
+.results-page .reveal-main > .result-toolbar { padding: 20px 0 0; }
+.results-page .error-panel.panel { background: var(--rp-date); box-shadow: var(--lift-lg); }
+.results-page .error-panel .manga-button:hover { box-shadow: var(--lift-xs); }
+.results-page .error-panel .manga-button:active { box-shadow: var(--lift-none); }
+.results-page .error-panel .manga-button:focus-visible { outline: 3px solid var(--rp-focus); outline-offset: 3px; }
+
+/* ── Responsive ────────────────────────────────────────────────────── */
+/* Below the wide reading column the sheet stacks: identity, cover, index,
+   extras, note, actions — one vertical reading order. */
+@media (min-width: 721px) and (max-width: 1180px) {
+  .results-page .result-card.panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'summary' 'cover' 'explore' 'extras' 'note' 'actions';
+    grid-template-rows: auto auto auto auto auto auto;
+  }
+  .results-page .reveal-copy { padding: 22px 24px 4px; gap: 0 16px; }
+  .results-page .reveal-copy h1 { font-size: clamp(2rem, 4vw, 2.75rem); }
+  .results-page .issue-stamp { padding: 6px 8px; font-size: .5625rem; }
+  .results-page .issue-stamp strong { font-size: 1.875rem; }
+  .results-page .cover-stage { border-right: 0; border-block: 2px solid var(--rp-ink); padding: 16px 26px 20px; }
+  .results-page .cover-spine { width: 26px; }
+  .results-page .cover-kicker span + span { display: none; }
+  .results-page .cover-stage .magazine-cover { max-width: min(100% - 12px, 390px); max-height: 470px; }
+  .results-page .explore-panel.panel { padding-inline: 24px; }
+  .results-page .extras { padding-inline: 24px; }
+  .results-page .editor-note { padding-inline: 24px; }
+  .results-page .result-toolbar { padding-inline: 24px; }
+  .results-page .result-actions { gap: 8px; }
+}
+
+/* Wide sheets give the profile and its reading copy separate columns. Type
+   stays readable on short laptop windows; the document scrolls naturally. */
+@media (min-width: 1181px) {
+  .results-page .extras { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 32px; }
+  .results-page .extras-title { align-self: center; margin: 0; }
+  .results-page .extra-panel { grid-column: 1 / -1; padding-block: 24px; }
+  .results-page #horoscopePanel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 32px; align-items: start; }
+  .results-page .horoscope-profile { grid-area: 1 / 1 / 4 / 2; margin: 0; gap: 24px; }
+  .results-page .character-artwork { flex-basis: 144px; width: 144px; }
+  .results-page .sign-facts { grid-column: 2; margin-top: 0; padding-top: 0; border-top: 0; }
+  .results-page .sign-description, .results-page #horoscopePanel > .source-note { grid-column: 2; }
+  .results-page .result-actions { align-self: end; width: min(620px, 100%); }
+}
+
+@media (max-width: 720px) {
+  .results-page.reveal-edition .manga-page { padding: 10px; gap: 16px; }
+  .results-page .result-card.panel {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'summary' 'cover' 'explore' 'extras' 'note' 'actions';
+    grid-template-rows: auto auto auto auto auto auto;
+    box-shadow: var(--lift-md);
+  }
+  .results-page .reveal-copy { padding: 20px 18px 6px; gap: 0 12px; }
+  .results-page .reveal-copy h1 { gap: 8px; font-size: clamp(1.875rem, 8.4vw, 3.5rem); }
+  .results-page .result-title-lead { font-size: .48em; }
+  .results-page .result-wordmark { padding-inline: 2px; text-shadow: 1px 2px 0 var(--rp-ink); -webkit-text-stroke-width: .7px; }
+  .results-page .result-wordmark::before { inset-inline: -3px; box-shadow: var(--lift-sm); }
+  .results-page .issue-stamp { gap: 3px; padding: 6px; font-size: .5625rem; }
+  .results-page .issue-stamp strong { font-size: 1.625rem; }
+  .results-page .date-facts { grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
+  .results-page .date-facts dt { margin-bottom: 4px; font-size: .75rem; }
+  .results-page .date-facts dd { font-size: 1.0625rem; }
+  .results-page #coverDateFact { padding: 0; border: 0; }
+  .results-page #coverDate { font-size: 1rem; }
+  .results-page .date-info-button { font-size: .75rem; min-height: 44px; }
+  .results-page .date-info-tip { width: min(38ch, calc(100vw - 56px)); font-size: .75rem; }
+  .results-page .editor-note { padding: 9px 18px 0; grid-template-columns: minmax(0, 1fr) auto; }
+  .results-page .editor-note-kicker { grid-area: 1 / 1; }
+  .results-page .editor-note-title { grid-area: 2 / 1; font-size: .8125rem; }
+  .results-page .editor-note-body { grid-area: 3 / 1 / 4 / -1; font-size: .75rem; }
+  .results-page .editor-note-next { grid-area: 1 / 2 / 3 / 3; align-self: center; min-height: 44px; font-size: .6875rem; }
+  .results-page .cover-stage { border-right: 0; border-block: 2px solid var(--rp-ink); padding: 14px 20px 18px; }
+  .results-page .cover-spine { width: 22px; font-size: .5625rem; letter-spacing: .16em; }
+  .results-page .cover-kicker { font-size: .5625rem; letter-spacing: .07em; }
+  .results-page .cover-stage .magazine-cover { max-width: min(100% - 14px, 290px); max-height: 380px; box-shadow: 6px 7px 0 var(--rp-cover-shadow), 2px 3px 0 1px var(--rp-cover-spine); }
+  .results-page .cover-placeholder { width: 100%; min-height: 300px; }
+  .results-page .explore-panel.panel { padding: 12px 18px 14px; }
+  .results-page .explore-heading { margin-bottom: 6px; }
+  .results-page .explore-heading h2 { font-size: 1.375rem; }
+  .results-page .contents-count { font-size: .6875rem; }
+  .results-page .contents-list li { grid-template-columns: 18px minmax(0, 1fr); gap: 9px; padding-block: 5px; }
+  /* One index column on phones: at this width two would halve the measure. */
+  .results-page .contents-list { column-count: 1; }
+  /* Phones: title left, chapter right — one line per entry, wrapping only the
+     long series names. */
+  .results-page .contents-entry { grid-template-columns: minmax(0, 1fr) auto; gap: 0 10px; }
+  .results-page .contents-entry::before { display: none; }
+  .results-page .contents-series { grid-area: 1 / 1; }
+  .results-page .contents-chapter { grid-area: 1 / 2; text-align: end; }
+  .results-page .contents-series { font-size: .875rem; }
+  .results-page .contents-chapter { font-size: .75rem; }
+  .results-page .extras { padding: 10px 18px 0; }
+  .results-page .extras-title { font-size: var(--rp-type-heading); }
+  .results-page .note-next-label { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .results-page .editor-note-next { padding: 2px 4px; }
+  .results-page .extra-card { padding-inline: var(--rp-space-1); }
+  .results-page .extra-card-cta { display: none; }
+  .results-page .extra-panel { padding-block: var(--rp-space-2); }
+  .results-page .extra-feature-copy .horoscope-character { font-size: var(--rp-type-heading); }
+  .results-page .extra-artwork { flex-basis: 82px; width: 82px; }
+  .results-page .character-artwork { flex-basis: 78px; width: 78px; }
+  .results-page .extra-feature { gap: 14px; }
+  .results-page .extra-feature-copy h3 { font-size: 1.625rem; }
+  .results-page .extra-feature-copy .extra-byline { font-size: .875rem; }
+  .results-page .sign-facts { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .results-page .result-toolbar { padding: 12px 18px 16px; }
+  .results-page .result-actions { gap: 8px; padding: 0; }
+  .results-page .result-actions .manga-button { flex: .8; min-height: 48px; padding: 10px; font-size: .8125rem; }
+  .results-page #shareButton { flex: 1; }
+  .results-page .share-note { text-align: start; font-size: .6875rem; }
+  .results-page .data-note summary { scroll-margin-block: 24px; }
+}
+
+@media (max-width: 400px) {
+  .results-page .reveal-copy { padding-inline: 14px; gap: 0 9px; }
+  .results-page .reveal-copy h1 { font-size: 1.75rem; }
+  .results-page .issue-stamp { padding: 7px 5px; }
+  .results-page .issue-stamp strong { font-size: 1.625rem; }
+  .results-page .explore-panel.panel { padding-inline: 14px; }
+  .results-page .contents-series { font-size: .875rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .results-page .extra-card,
+  .results-page .extra-card-glyph,
+  .results-page .editor-note-next,
+  .results-page .date-info-button { transition: none; }
+
+  .results-page .extra-card:hover,
+  .results-page .extra-card:active,
+  .results-page .editor-note-next:hover,
+  .results-page .editor-note-next:active { transform: none; }
+
+  .results-page .editor-note.is-turning .editor-note-title,
+  .results-page .editor-note.is-turning .editor-note-body { animation: none; }
+}
